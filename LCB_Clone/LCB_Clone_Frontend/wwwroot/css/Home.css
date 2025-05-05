@@ -1,2 +1,19 @@
-﻿body {
+﻿#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home_middle {
+    text-align: center;
+}
+
+.home_middle_h1 {
+    font-weight: 400;
+    line-height: 1.1;
+    font-size: 1.7em;
+}
+
+.home_middle_img {
+    display: inline;
 }

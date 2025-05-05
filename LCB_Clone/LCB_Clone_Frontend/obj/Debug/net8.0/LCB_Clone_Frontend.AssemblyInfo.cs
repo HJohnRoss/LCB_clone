@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LCB_Clone_Frontend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+996a15d86e724e0863a4543ea44623b2629af1be")]
 [assembly: System.Reflection.AssemblyProductAttribute("LCB_Clone_Frontend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LCB_Clone_Frontend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

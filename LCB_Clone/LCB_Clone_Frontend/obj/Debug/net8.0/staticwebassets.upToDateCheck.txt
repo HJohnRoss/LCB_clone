@@ -1,4 +1,7 @@
+wwwroot\assets\CarsonCityLegislativeBuilding.png
+wwwroot\assets\lcb-logo-sm.png
+wwwroot\assets\Legislative_logoSEAL-Color_2025.jpg
 wwwroot\css\Base.css
-wwwroot\css\HomePage.css
+wwwroot\css\Home.css
 wwwroot\css\Navbar.css
 wwwroot\favicon.png

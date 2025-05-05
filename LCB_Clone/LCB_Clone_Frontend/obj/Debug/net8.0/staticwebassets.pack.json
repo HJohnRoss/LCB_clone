@@ -1,16 +1,24 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LCB_Clone_Frontend.bundle.scp.css",
-      "PackagePath": "staticwebassets\\LCB_Clone_Frontend.40u65pt2wr.bundle.scp.css"
+      "Id": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\assets\\CarsonCityLegislativeBuilding.png",
+      "PackagePath": "staticwebassets\\assets\\CarsonCityLegislativeBuilding.png"
+    },
+    {
+      "Id": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\assets\\Legislative_logoSEAL-Color_2025.jpg",
+      "PackagePath": "staticwebassets\\assets\\Legislative_logoSEAL-Color_2025.jpg"
+    },
+    {
+      "Id": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\assets\\lcb-logo-sm.png",
+      "PackagePath": "staticwebassets\\assets\\lcb-logo-sm.png"
     },
     {
       "Id": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\Base.css",
       "PackagePath": "staticwebassets\\css\\Base.css"
     },
     {
-      "Id": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\HomePage.css",
-      "PackagePath": "staticwebassets\\css\\HomePage.css"
+      "Id": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\Home.css",
+      "PackagePath": "staticwebassets\\css\\Home.css"
     },
     {
       "Id": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\Navbar.css",

@@ -12,10 +12,7 @@ C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\LCB_
 C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\LCB_Clone_Frontend.AssemblyInfo.cs
 C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\LCB_Clone_Frontend.csproj.CoreCompileInputs.cache
 C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\LCB_Clone_Frontend.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
-C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
 C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\scopedcss\bundle\LCB_Clone_Frontend.styles.css
-C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\scopedcss\projectbundle\LCB_Clone_Frontend.bundle.scp.css
 C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
@@ -31,3 +28,4 @@ C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\refi
 C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\LCB_Clone_Frontend.pdb
 C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\LCB_Clone_Frontend.genruntimeconfig.cache
 C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\ref\LCB_Clone_Frontend.dll
+C:\Users\rossj\code\LCB_clone\LCB_Clone\LCB_Clone_Frontend\obj\Debug\net8.0\LCB_Clone_Frontend.sourcelink.json

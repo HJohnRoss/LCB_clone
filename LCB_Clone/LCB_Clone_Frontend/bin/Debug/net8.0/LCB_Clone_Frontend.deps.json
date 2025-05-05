@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "LCB_Clone_Frontend/1.0.0": {
+        "runtime": {
+          "LCB_Clone_Frontend.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LCB_Clone_Frontend/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

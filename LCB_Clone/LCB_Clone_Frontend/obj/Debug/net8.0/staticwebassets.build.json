@@ -1,0 +1,640 @@
+{
+  "Version": 1,
+  "Hash": "kiVCSozK3hpSXmQYwvOceZwluJO9bs7ckeaLEqPVYCw=",
+  "Source": "LCB_Clone_Frontend",
+  "BasePath": "_content/LCB_Clone_Frontend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "LCB_Clone_Frontend\\wwwroot",
+      "Source": "LCB_Clone_Frontend",
+      "ContentRoot": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\",
+      "BasePath": "_content/LCB_Clone_Frontend",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\LCB_Clone_Frontend.styles.css",
+      "SourceId": "LCB_Clone_Frontend",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "BasePath": "_content/LCB_Clone_Frontend",
+      "RelativePath": "LCB_Clone_Frontend#[.{fingerprint}]?.styles.css",
+      "AssetKind": "All",
+      "AssetMode": "CurrentProject",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ApplicationBundle",
+      "Fingerprint": "40u65pt2wr",
+      "Integrity": "nKnD1xK/AICY2m39O/F/fraaZ9iNv2HJWF9D66f1NUU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\LCB_Clone_Frontend.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LCB_Clone_Frontend.bundle.scp.css",
+      "SourceId": "LCB_Clone_Frontend",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/LCB_Clone_Frontend",
+      "RelativePath": "LCB_Clone_Frontend#[.{fingerprint}]!.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "Fingerprint": "40u65pt2wr",
+      "Integrity": "nKnD1xK/AICY2m39O/F/fraaZ9iNv2HJWF9D66f1NUU=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LCB_Clone_Frontend.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\Base.css",
+      "SourceId": "LCB_Clone_Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\",
+      "BasePath": "_content/LCB_Clone_Frontend",
+      "RelativePath": "css/Base#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "qz8unhvq2p",
+      "Integrity": "BlRjRkCV5aA1dmF/vOVhBxD3j4iWL88Uyq6h6REwj+Y=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Base.css"
+    },
+    {
+      "Identity": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\HomePage.css",
+      "SourceId": "LCB_Clone_Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\",
+      "BasePath": "_content/LCB_Clone_Frontend",
+      "RelativePath": "css/HomePage#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "3r8b2a0bt1",
+      "Integrity": "8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\HomePage.css"
+    },
+    {
+      "Identity": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\Navbar.css",
+      "SourceId": "LCB_Clone_Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\",
+      "BasePath": "_content/LCB_Clone_Frontend",
+      "RelativePath": "css/Navbar#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "vkh0cj0z3o",
+      "Integrity": "AS8MkLKvlvv4HeJ/PMd3pPYekBnLFHwQkUBW7A4cbV8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\Navbar.css"
+    },
+    {
+      "Identity": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\favicon.png",
+      "SourceId": "LCB_Clone_Frontend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\",
+      "BasePath": "_content/LCB_Clone_Frontend",
+      "RelativePath": "favicon#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "ifv42okdf2",
+      "Integrity": "4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.png"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/Base.css",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\Base.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BlRjRkCV5aA1dmF/vOVhBxD3j4iWL88Uyq6h6REwj+Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:12:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-BlRjRkCV5aA1dmF/vOVhBxD3j4iWL88Uyq6h6REwj+Y="
+        }
+      ]
+    },
+    {
+      "Route": "css/Base.qz8unhvq2p.css",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\Base.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "71"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BlRjRkCV5aA1dmF/vOVhBxD3j4iWL88Uyq6h6REwj+Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:12:57 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "qz8unhvq2p"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Base.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-BlRjRkCV5aA1dmF/vOVhBxD3j4iWL88Uyq6h6REwj+Y="
+        }
+      ]
+    },
+    {
+      "Route": "css/HomePage.3r8b2a0bt1.css",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\HomePage.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:12:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3r8b2a0bt1"
+        },
+        {
+          "Name": "label",
+          "Value": "css/HomePage.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U="
+        }
+      ]
+    },
+    {
+      "Route": "css/HomePage.css",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\HomePage.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:12:25 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8ZRc1sGeVrPBx4lD717BgRaQekyh78QKV9SKsdt638U="
+        }
+      ]
+    },
+    {
+      "Route": "css/Navbar.css",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\Navbar.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "44"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AS8MkLKvlvv4HeJ/PMd3pPYekBnLFHwQkUBW7A4cbV8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:19:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-AS8MkLKvlvv4HeJ/PMd3pPYekBnLFHwQkUBW7A4cbV8="
+        }
+      ]
+    },
+    {
+      "Route": "css/Navbar.vkh0cj0z3o.css",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\css\\Navbar.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "44"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"AS8MkLKvlvv4HeJ/PMd3pPYekBnLFHwQkUBW7A4cbV8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:19:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "vkh0cj0z3o"
+        },
+        {
+          "Name": "label",
+          "Value": "css/Navbar.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-AS8MkLKvlvv4HeJ/PMd3pPYekBnLFHwQkUBW7A4cbV8="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.ifv42okdf2.png",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\favicon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:01:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ifv42okdf2"
+        },
+        {
+          "Name": "label",
+          "Value": "favicon.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "favicon.png",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\wwwroot\\favicon.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1148"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:01:27 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
+        }
+      ]
+    },
+    {
+      "Route": "LCB_Clone_Frontend.40u65pt2wr.bundle.scp.css",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LCB_Clone_Frontend.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5919"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nKnD1xK/AICY2m39O/F/fraaZ9iNv2HJWF9D66f1NUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:05:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "40u65pt2wr"
+        },
+        {
+          "Name": "label",
+          "Value": "LCB_Clone_Frontend.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nKnD1xK/AICY2m39O/F/fraaZ9iNv2HJWF9D66f1NUU="
+        }
+      ]
+    },
+    {
+      "Route": "LCB_Clone_Frontend.40u65pt2wr.styles.css",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\LCB_Clone_Frontend.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5919"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nKnD1xK/AICY2m39O/F/fraaZ9iNv2HJWF9D66f1NUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:05:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "40u65pt2wr"
+        },
+        {
+          "Name": "label",
+          "Value": "LCB_Clone_Frontend.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nKnD1xK/AICY2m39O/F/fraaZ9iNv2HJWF9D66f1NUU="
+        }
+      ]
+    },
+    {
+      "Route": "LCB_Clone_Frontend.bundle.scp.css",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\LCB_Clone_Frontend.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5919"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nKnD1xK/AICY2m39O/F/fraaZ9iNv2HJWF9D66f1NUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:05:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nKnD1xK/AICY2m39O/F/fraaZ9iNv2HJWF9D66f1NUU="
+        }
+      ]
+    },
+    {
+      "Route": "LCB_Clone_Frontend.styles.css",
+      "AssetFile": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\LCB_Clone_Frontend.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5919"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nKnD1xK/AICY2m39O/F/fraaZ9iNv2HJWF9D66f1NUU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 05 May 2025 20:05:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nKnD1xK/AICY2m39O/F/fraaZ9iNv2HJWF9D66f1NUU="
+        }
+      ]
+    }
+  ]
+}

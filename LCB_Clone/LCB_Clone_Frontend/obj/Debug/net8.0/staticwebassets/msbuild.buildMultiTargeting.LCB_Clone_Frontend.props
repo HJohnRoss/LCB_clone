@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\LCB_Clone_Frontend.props" />
+</Project>

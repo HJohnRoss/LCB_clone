@@ -14,6 +14,11 @@
     font-size: 1.7em;
 }
 
+#gold-hr {
+    width: 25em;
+    border-top: solid 1px #cc9900;
+}
+
 .home_middle_img {
     display: inline;
 }

@@ -50,9 +50,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "Swashbuckle.AspNetCore": {
+            "Dapper": {
               "target": "Package",
-              "version": "[6.6.2, )"
+              "version": "[2.1.66, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.0.2, )"
             }
           },
           "imports": [
@@ -67,9 +71,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

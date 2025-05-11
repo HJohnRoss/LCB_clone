@@ -10,8 +10,8 @@ namespace LCB_Clone_Backend.Models
     {
         public int Id { get; set; }
         public List<HearingRoomMeeting> PreviousMeetings { get; set; } = new List<HearingRoomMeeting>();
-        public List<Vote> Votes { get; set; } = new List<Vote>();
-        public List<FiscalNote> FiscalNotes { get; set; } = new List<FiscalNote>();
-        public List<Exhibit> Exhibits { get; set; } = new List<Exhibit>();
+        // public List<Vote> Votes { get; set; } = new List<Vote>();
+        // public List<FiscalNote> FiscalNotes { get; set; } = new List<FiscalNote>();
+        // public List<Exhibit> Exhibits { get; set; } = new List<Exhibit>();
     }
 }

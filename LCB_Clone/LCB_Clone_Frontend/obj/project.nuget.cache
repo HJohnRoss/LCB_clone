@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "lCXD6H6X6Bg=",
+  "dgSpecHash": "NNI/Bc+5e63bweSaV1B7k63ex24QIHR78AYy0eRlHEDuc72/v8ua3KRAUcYb4V8AlLMuFLitSDx6Uvqb2T1+JQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rossj\\code\\LCB_clone\\LCB_Clone\\LCB_Clone_Frontend\\LCB_Clone_Frontend.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/LCB_Clone_Frontend.csproj",
+  "expectedPackageFiles": [
+    "/home/john/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.15/microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512"
+  ],
   "logs": []
 }

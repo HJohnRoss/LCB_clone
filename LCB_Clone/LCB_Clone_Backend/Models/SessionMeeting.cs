@@ -8,6 +8,6 @@ namespace LCB_Clone_Backend.Models
 {
     public class SessionMeeting : HearingRoomMeeting
     {
-        public List<T>
+        // public List<T>
     }
 }

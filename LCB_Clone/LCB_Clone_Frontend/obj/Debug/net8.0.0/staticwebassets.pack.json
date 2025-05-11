@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/CarsonCityLegislativeBuilding.png",
+      "PackagePath": "staticwebassets/assets/CarsonCityLegislativeBuilding.png"
+    },
+    {
+      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/Legislative_logoSEAL-Color_2025.jpg",
+      "PackagePath": "staticwebassets/assets/Legislative_logoSEAL-Color_2025.jpg"
+    },
+    {
+      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/lcb-logo-sm.png",
+      "PackagePath": "staticwebassets/assets/lcb-logo-sm.png"
+    },
+    {
+      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Base.css",
+      "PackagePath": "staticwebassets/css/Base.css"
+    },
+    {
+      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Home.css",
+      "PackagePath": "staticwebassets/css/Home.css"
+    },
+    {
+      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Navbar.css",
+      "PackagePath": "staticwebassets/css/Navbar.css"
+    },
+    {
+      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "obj/Debug/net8.0.0/staticwebassets/msbuild.LCB_Clone_Frontend.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0.0/staticwebassets/msbuild.build.LCB_Clone_Frontend.props",
+      "PackagePath": "build\\LCB_Clone_Frontend.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0.0/staticwebassets/msbuild.buildMultiTargeting.LCB_Clone_Frontend.props",
+      "PackagePath": "buildMultiTargeting\\LCB_Clone_Frontend.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0.0/staticwebassets/msbuild.buildTransitive.LCB_Clone_Frontend.props",
+      "PackagePath": "buildTransitive\\LCB_Clone_Frontend.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

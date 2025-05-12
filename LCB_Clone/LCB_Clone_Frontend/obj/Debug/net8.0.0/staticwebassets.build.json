@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Nocvq9lkVXQn6F7YC8RnvBPUYbdDHrPDuM+9wEBHwZo=",
+  "Hash": "mzF5pAlUxkB5u2Z+cV4g3xV0Qd2O3zj5NIjXK0rnjMk=",
   "Source": "LCB_Clone_Frontend",
   "BasePath": "_content/LCB_Clone_Frontend",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "LCB_Clone_Frontend/wwwroot",
       "Source": "LCB_Clone_Frontend",
-      "ContentRoot": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
+      "ContentRoot": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
       "BasePath": "_content/LCB_Clone_Frontend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/CarsonCityLegislativeBuilding.png",
+      "Identity": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/CarsonCityLegislativeBuilding.png",
       "SourceId": "LCB_Clone_Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
+      "ContentRoot": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
       "BasePath": "_content/LCB_Clone_Frontend",
       "RelativePath": "assets/CarsonCityLegislativeBuilding.png",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot/assets/CarsonCityLegislativeBuilding.png"
     },
     {
-      "Identity": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/lcb-logo-sm.png",
+      "Identity": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/lcb-logo-sm.png",
       "SourceId": "LCB_Clone_Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
+      "ContentRoot": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
       "BasePath": "_content/LCB_Clone_Frontend",
       "RelativePath": "assets/lcb-logo-sm.png",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot/assets/lcb-logo-sm.png"
     },
     {
-      "Identity": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/Legislative_logoSEAL-Color_2025.jpg",
+      "Identity": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/Legislative_logoSEAL-Color_2025.jpg",
       "SourceId": "LCB_Clone_Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
+      "ContentRoot": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
       "BasePath": "_content/LCB_Clone_Frontend",
       "RelativePath": "assets/Legislative_logoSEAL-Color_2025.jpg",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot/assets/Legislative_logoSEAL-Color_2025.jpg"
     },
     {
-      "Identity": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Base.css",
+      "Identity": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Base.css",
       "SourceId": "LCB_Clone_Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
+      "ContentRoot": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
       "BasePath": "_content/LCB_Clone_Frontend",
       "RelativePath": "css/Base.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot/css/Base.css"
     },
     {
-      "Identity": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Home.css",
+      "Identity": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Home.css",
       "SourceId": "LCB_Clone_Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
+      "ContentRoot": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
       "BasePath": "_content/LCB_Clone_Frontend",
       "RelativePath": "css/Home.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot/css/Home.css"
     },
     {
-      "Identity": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Navbar.css",
+      "Identity": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Navbar.css",
       "SourceId": "LCB_Clone_Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
+      "ContentRoot": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
       "BasePath": "_content/LCB_Clone_Frontend",
       "RelativePath": "css/Navbar.css",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot/css/Navbar.css"
     },
     {
-      "Identity": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/favicon.png",
+      "Identity": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/favicon.png",
       "SourceId": "LCB_Clone_Frontend",
       "SourceType": "Discovered",
-      "ContentRoot": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
+      "ContentRoot": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/",
       "BasePath": "_content/LCB_Clone_Frontend",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

@@ -8,6 +8,7 @@ namespace LCB_Clone_Backend.Models
 {
     public class Amendment
     {
+        [REQUIRED]
         public int Id { get; set; }
     }
 }

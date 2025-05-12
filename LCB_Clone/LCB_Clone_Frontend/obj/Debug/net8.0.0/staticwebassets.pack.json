@@ -1,31 +1,31 @@
 {
   "Files": [
     {
-      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/CarsonCityLegislativeBuilding.png",
+      "Id": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/CarsonCityLegislativeBuilding.png",
       "PackagePath": "staticwebassets/assets/CarsonCityLegislativeBuilding.png"
     },
     {
-      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/Legislative_logoSEAL-Color_2025.jpg",
+      "Id": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/Legislative_logoSEAL-Color_2025.jpg",
       "PackagePath": "staticwebassets/assets/Legislative_logoSEAL-Color_2025.jpg"
     },
     {
-      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/lcb-logo-sm.png",
+      "Id": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/assets/lcb-logo-sm.png",
       "PackagePath": "staticwebassets/assets/lcb-logo-sm.png"
     },
     {
-      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Base.css",
+      "Id": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Base.css",
       "PackagePath": "staticwebassets/css/Base.css"
     },
     {
-      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Home.css",
+      "Id": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Home.css",
       "PackagePath": "staticwebassets/css/Home.css"
     },
     {
-      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Navbar.css",
+      "Id": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/css/Navbar.css",
       "PackagePath": "staticwebassets/css/Navbar.css"
     },
     {
-      "Id": "/home/john/code/LCB_clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/favicon.png",
+      "Id": "/home/john/code/LCB_Clone/LCB_Clone/LCB_Clone_Frontend/wwwroot/favicon.png",
       "PackagePath": "staticwebassets/favicon.png"
     },
     {

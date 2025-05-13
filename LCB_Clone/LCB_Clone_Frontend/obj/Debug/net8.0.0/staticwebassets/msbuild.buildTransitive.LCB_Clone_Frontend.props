@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/LCB_Clone_Frontend.props" />
-</Project>

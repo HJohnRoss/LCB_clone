@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LCB_Clone_Backend.Models
+﻿namespace LCB_Clone_Backend.Models
 {
-    public class LegislativeMeeting
+    public class LegislativeMeeting : HearingRoomMeeting
     {
-        // public List<Legislator> Members { get; set; } = new List<Legislator>();
-        // public List<Staff> AllStaff { get; set; } = new List<Staff>();
+        public required string House { get; set; }
+        public List<Legislator> LegislativeMembers { get; set; } = new List<Legislator>();
+        public List<Staff> AllStaff { get; set; } = new List<Staff>();
     }
 }

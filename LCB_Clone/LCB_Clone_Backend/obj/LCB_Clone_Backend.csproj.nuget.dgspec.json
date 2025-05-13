@@ -47,9 +47,9 @@
               "target": "Package",
               "version": "[2.1.66, )"
             },
-            "Microsoft.Data.SqlClient": {
+            "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[6.0.2, )"
+              "version": "[9.0.4, )"
             }
           },
           "imports": [

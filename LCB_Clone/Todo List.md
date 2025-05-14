@@ -1,0 +1,11 @@
+- Front End
+	-  Home Page
+		- [ ] CSS for middle section
+		- [ ] HTML/CSS for Left section
+		- [ ] Add API Calls from the backened
+- Backend
+	- SQL Database
+		- [ ] Create all tables relating to HearingRoomMeeting
+	- C# Classes
+		- [ ] Create all classes relating to HearingRoomMeeting
+		- [ ] CRUD Requests for most HearingRoomMeeting items

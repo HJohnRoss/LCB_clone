@@ -5,20 +5,28 @@ using Dapper;
 
 namespace LCB_Clone_Backend
 {
-    internal class SqlDataAccess
+
+    public class SqlDataAccess
     {
-        public List<T> LoadData<T, U>(string query, U parameters, string connectionString)
+        private readonly string? _connectionString;
+
+        public SqlDataAccess(string connectionString)
         {
-            using (IDbConnection connection = new SqliteConnection(connectionString))
+            _connectionString = connectionString;
+        }
+
+        public List<T> LoadData<T, U>(string query, U parameters)
+        {
+            using (IDbConnection connection = new SqliteConnection(_connectionString))
             {
                 List<T> rows = connection.Query<T>(query, parameters).ToList();
                 return rows;
             }
         }
 
-        public void SaveData<T>(string query, T parameters, string connectionString)
+        public void SaveData<T>(string query, T parameters)
         {
-            using (IDbConnection connection = new SqliteConnection(connectionString))
+            using (IDbConnection connection = new SqliteConnection(_connectionString))
             {
                 connection.Execute(query, parameters);
             }

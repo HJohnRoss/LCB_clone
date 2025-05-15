@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LCB_Clone_Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250514214938_UpdateAmendmentsTable")]
-    partial class UpdateAmendmentsTable
+    [Migration("20250515012216_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

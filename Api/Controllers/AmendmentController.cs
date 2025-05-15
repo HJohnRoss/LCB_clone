@@ -4,8 +4,8 @@ using LCB_Clone_Backend.Models;
 
 namespace Api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class AmendmentController : ControllerBase
     {
         private readonly AmendmentData _amendmentData;

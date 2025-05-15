@@ -15,7 +15,7 @@ namespace LCB_Clone_Backend.Data
         public DbSet<ExhibitModel> Exhibits => Set<ExhibitModel>();
         public DbSet<FiscalNoteModel> FiscalNotes => Set<FiscalNoteModel>();
         public DbSet<HearingRoomMeetingModel> HearingRoomMeetings => Set<HearingRoomMeetingModel>();
-        public DbSet<LegislativeMeetingModel> LegislativeMeetingModels => Set<LegislativeMeetingModel>();
+        public DbSet<LegislativeMeetingModel> LegislativeMeetings => Set<LegislativeMeetingModel>();
         public DbSet<LegislatorModel> Legislators => Set<LegislatorModel>();
         public DbSet<StaffMemberModel> StaffMembers => Set<StaffMemberModel>();
 

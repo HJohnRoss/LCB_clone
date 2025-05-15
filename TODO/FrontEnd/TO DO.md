@@ -1,0 +1,21 @@
+### Front end
+- [ ] Connect Back End to Front End
+- [ ] Home Page; Route: "/"
+	- [ ] HTML
+	- [ ] CSS
+- [ ] Scheduled Meetings; Route: "App/Calendar/A/"
+	- [ ] HTML
+	- [ ]  CSS
+- [ ] View Events; Route: "/Video"
+	- [ ] HTML
+	- [ ] CSS
+	- [ ] For harmony (Video app) put a placeholder
+- [ ] Current Legislator Contact Info; Route: "/App/Legislator/A/Senate/Current"
+	- [ ] HTML
+	- [ ] CSS
+- [ ] Current Senate Contact Info; Route: "/App/Legislator/A/Senate/Current" 
+	- [ ] HTML
+	- [ ] CSS
+- [ ] Current Assembly Contact Info; Route: "/App/Legislator/A/Assembly/Current"
+	- [ ] HTML
+	- [ ] CSS

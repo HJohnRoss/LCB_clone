@@ -6,8 +6,8 @@ namespace LCB_Clone_Backend.Models
         public string? FilePath { get; set; }
         // Optional metadata (expandable)
         public string? FileName { get; set; }
+        public required BillModel Bills { get; set; }
+
         public DateTime UploadedAt { get; set; } = DateTime.UtcNow;
-        // Foreign Keys
-        public required BillModel Bill { get; set; }
     }
 }

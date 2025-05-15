@@ -17,13 +17,13 @@ namespace Api.Controllers
         }
 
         // GET api/amendment
-        [HttpGet("all")]
-        public ActionResult<List<AmendmentModel>> GetAllAmendments()
+        [HttpGet("GetAll")]
+        public ActionResult<List<AmendmentModel>> GetAll()
         {
             try
             {
                 // Fetch amendments using the AmendmentData service
-                var amendments = _amendmentData.GetAllAmendmentsData();
+                List<AmendmentModel> amendments = _amendmentData.GetAll();
                 return Ok(amendments); // Return 200 OK with the data
             }
             catch (Exception ex)

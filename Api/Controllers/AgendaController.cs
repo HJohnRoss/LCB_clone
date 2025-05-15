@@ -6,29 +6,29 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("/api/[controller]")]
-    public class BillController : ControllerBase
+    public class AgendaController : ControllerBase
     {
-        private readonly BillData _billData;
+        private readonly AgendaData _agendaData;
 
-        public BillController(BillData billData)
+        public AgendaController(AgendaData agendaData)
         {
-            _billData = billData;
+            _agendaData = agendaData;
         }
 
-
         [HttpGet("GetAll")]
-        public ActionResult<List<BillModel>> GetAll()
+        public ActionResult<List<AgendaModel>> GetAll()
         {
             try
             {
-                List<BillModel> result = _billData.GetAll()
-                    ?? throw new InvalidDataException("GetAll Bills Query is null");
+                List<AgendaModel> result = _agendaData.GetAll()
+                    ?? throw new InvalidDataException("GetAll Agendas query is null");
                 return Ok(result);
             }
             catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
             }
+
         }
     }
 }

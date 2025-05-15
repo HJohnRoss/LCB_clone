@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 string connectionString = builder.Configuration.GetConnectionString("Default")
     ?? throw new InvalidOperationException("Connection string Default not found");
 
-// Register SqlDataAccess for database operations
+// NOTE: Register SqlDataAccess for database operations
 builder.Services.AddScoped<SqlDataAccess>(_ =>
     new SqlDataAccess(connectionString)
 );
@@ -17,8 +17,15 @@ builder.Services.AddScoped<SqlDataAccess>(_ =>
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(connectionString)); // Or your preferred database provider
 
-// Register services required for controllers
-builder.Services.AddScoped<AmendmentData>(); // Register AmendmentData in DI
+// NOTE: Register services required for controllers
+builder.Services.AddScoped<AmendmentData>();
+builder.Services.AddScoped<AgendaData>();
+builder.Services.AddScoped<BillData>();
+builder.Services.AddScoped<CommitteData>();
+builder.Services.AddScoped<ExhibitData>();
+builder.Services.AddScoped<HearingRoomMeetingData>();
+builder.Services.AddScoped<LegislativeMeetingData>();
+builder.Services.AddScoped<LegislatorData>();
 
 // Add services to the container
 builder.Services.AddControllers();

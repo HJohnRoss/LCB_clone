@@ -8,7 +8,7 @@ namespace LCB_Clone_Backend.Data
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options) { }
 
-        public DbSet<AgendaModel> Agenda => Set<AgendaModel>();
+        public DbSet<AgendaModel> Agendas => Set<AgendaModel>();
         public DbSet<AmendmentModel> Amendments => Set<AmendmentModel>();
         public DbSet<BillModel> Bills => Set<BillModel>();
         public DbSet<CommitteeModel> Committees => Set<CommitteeModel>();
@@ -22,6 +22,11 @@ namespace LCB_Clone_Backend.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+
+            // 👇 Tell EF Core to use TPT for these models
+            modelBuilder.Entity<HearingRoomMeetingModel>().ToTable("HearingRoomMeetings");
+            modelBuilder.Entity<LegislativeMeetingModel>().ToTable("LegislativeMeetings");
 
             // Define a many-to-many relationship between BillModel and LegislatorModel
             modelBuilder.Entity<BillModel>()

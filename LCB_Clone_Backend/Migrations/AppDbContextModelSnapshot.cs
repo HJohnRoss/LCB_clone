@@ -53,7 +53,7 @@ namespace LCB_Clone_Backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("BillId")
+                    b.Property<int>("BillsId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("FileName")
@@ -67,9 +67,9 @@ namespace LCB_Clone_Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BillId");
+                    b.HasIndex("BillsId");
 
-                    b.ToTable("Agenda");
+                    b.ToTable("Agendas");
                 });
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.AmendmentModel", b =>
@@ -209,11 +209,6 @@ namespace LCB_Clone_Backend.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasMaxLength(34)
-                        .HasColumnType("TEXT");
-
                     b.Property<bool>("IsCCMainRoom")
                         .HasColumnType("INTEGER");
 
@@ -235,11 +230,9 @@ namespace LCB_Clone_Backend.Migrations
 
                     b.HasIndex("AgendaId");
 
-                    b.ToTable("HearingRoomMeetings");
+                    b.ToTable("HearingRoomMeetings", (string)null);
 
-                    b.HasDiscriminator().HasValue("HearingRoomMeetingModel");
-
-                    b.UseTphMappingStrategy();
+                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.LegislatorModel", b =>
@@ -416,7 +409,7 @@ namespace LCB_Clone_Backend.Migrations
 
                     b.HasIndex("BillModelId");
 
-                    b.HasDiscriminator().HasValue("LegislativeMeetingModel");
+                    b.ToTable("LegislativeMeetings", (string)null);
                 });
 
             modelBuilder.Entity("BillLegislatorCoSponsor", b =>
@@ -451,13 +444,13 @@ namespace LCB_Clone_Backend.Migrations
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.AgendaModel", b =>
                 {
-                    b.HasOne("LCB_Clone_Backend.Models.BillModel", "Bill")
+                    b.HasOne("LCB_Clone_Backend.Models.BillModel", "Bills")
                         .WithMany()
-                        .HasForeignKey("BillId")
+                        .HasForeignKey("BillsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Bill");
+                    b.Navigation("Bills");
                 });
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.AmendmentModel", b =>
@@ -543,6 +536,12 @@ namespace LCB_Clone_Backend.Migrations
                     b.HasOne("LCB_Clone_Backend.Models.BillModel", null)
                         .WithMany("PreviousMeetings")
                         .HasForeignKey("BillModelId");
+
+                    b.HasOne("LCB_Clone_Backend.Models.HearingRoomMeetingModel", null)
+                        .WithOne()
+                        .HasForeignKey("LCB_Clone_Backend.Models.LegislativeMeetingModel", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.BillModel", b =>

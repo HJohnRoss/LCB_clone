@@ -4,7 +4,7 @@ namespace LCB_Clone_Backend.Models
     {
         public int Id { get; set; }
         public string? Vote { get; set; }
-        // Foreign Keys
+
         public LegislatorModel? Legislator { get; set; }
     }
 }

@@ -33,4 +33,7 @@ echo "🔄 Applying migration to database..."
 dotnet ef database update --project "$PROJECT_PATH" --startup-project "$STARTUP_PATH"
 
 echo "✅ Done. Fresh database and migrations ready!"
+<<<<<<< HEAD
 
+=======
+>>>>>>> b539814 (api controllers)

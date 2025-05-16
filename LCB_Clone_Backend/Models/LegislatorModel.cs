@@ -4,6 +4,8 @@ namespace LCB_Clone_Backend.Models
     {
         public int Id { get; set; }
 
+        // type
+        public required bool IsSenator { get; set; }
         // Name, Title and Contact Info
         public required string FirstName { get; set; }
         public required string LastName { get; set; }

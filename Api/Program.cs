@@ -21,11 +21,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<AmendmentData>();
 builder.Services.AddScoped<AgendaData>();
 builder.Services.AddScoped<BillData>();
+builder.Services.AddScoped<BudgetData>();
 builder.Services.AddScoped<CommitteData>();
 builder.Services.AddScoped<ExhibitData>();
 builder.Services.AddScoped<HearingRoomMeetingData>();
 builder.Services.AddScoped<LegislativeMeetingData>();
 builder.Services.AddScoped<LegislatorData>();
+builder.Services.AddScoped<StaffMemberData>();
 
 // Add services to the container
 builder.Services.AddControllers();

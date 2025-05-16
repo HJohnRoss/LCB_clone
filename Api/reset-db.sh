@@ -17,8 +17,7 @@ else
 fi
 
 # Step 2: Delete existing migrations
-if [ -d "$MIGRATIONS_DIR" ]; then
-    echo "🗑️  Removing existing migrations at $MIGRATIONS_DIR"
+if [ -d "$MIGRATIONS_DIR" ]; then echo "🗑️  Removing existing migrations at $MIGRATIONS_DIR"
     rm -rf "$MIGRATIONS_DIR"
 else
     echo "✅ No existing migrations directory found."
@@ -33,7 +32,3 @@ echo "🔄 Applying migration to database..."
 dotnet ef database update --project "$PROJECT_PATH" --startup-project "$STARTUP_PATH"
 
 echo "✅ Done. Fresh database and migrations ready!"
-<<<<<<< HEAD
-
-=======
->>>>>>> b539814 (api controllers)

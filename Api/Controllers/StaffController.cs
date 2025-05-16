@@ -8,11 +8,27 @@ namespace Api.Controllers
     [Route("/api/[controller]")]
     public class StaffMemberController : ControllerBase
     {
-        private readonly StaffMemberModel _staffMember;
+        private readonly StaffMemberData _staffMemberData;
 
-        public StaffMemberController(StaffMemberModel staffMember)
+        public StaffMemberController(StaffMemberData data)
         {
-            _staffMember = staffMember;
+            _staffMemberData = data;
+        }
+
+        [HttpGet("GetAll")]
+        public ActionResult<List<StaffMemberModel>> GetAll()
+        {
+            try
+            {
+                List<StaffMemberModel> result = _staffMemberData.GetAll()
+                    ?? throw new InvalidDataException("Staff Memeber data get all is null");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+
         }
     }
 }

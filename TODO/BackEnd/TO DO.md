@@ -1,4 +1,5 @@
 ### Back End
-- Model 
-	- [ ] Session Model
-		- [ ] Find whatever the session model needs
+- [ ] Session Model
+	- [ ] Find whatever the session model needs
+- [ ] Session Meeting Model
+- [ ] Budget Model

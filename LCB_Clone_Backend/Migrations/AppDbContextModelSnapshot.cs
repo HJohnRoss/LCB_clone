@@ -295,9 +295,6 @@ namespace LCB_Clone_Backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("AgendaId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("CCRoomNumber")
                         .HasColumnType("TEXT");
 
@@ -323,8 +320,6 @@ namespace LCB_Clone_Backend.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AgendaId");
 
                     b.ToTable("HearingRoomMeetings", (string)null);
 
@@ -691,17 +686,6 @@ namespace LCB_Clone_Backend.Migrations
                         .IsRequired();
 
                     b.Navigation("Bill");
-                });
-
-            modelBuilder.Entity("LCB_Clone_Backend.Models.HearingRoomMeetingModel", b =>
-                {
-                    b.HasOne("LCB_Clone_Backend.Models.AgendaModel", "Agenda")
-                        .WithMany()
-                        .HasForeignKey("AgendaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Agenda");
                 });
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.LegislatorModel", b =>

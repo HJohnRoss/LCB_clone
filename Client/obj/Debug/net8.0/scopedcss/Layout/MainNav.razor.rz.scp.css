@@ -1,0 +1,48 @@
+.mainNav[b-hao0u6080a] {
+    background-color: #30415b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    height: 5rem;
+    line-height: 1.5rem;
+}
+
+#mainNav_left[b-hao0u6080a] {
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 1rem;
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+#mainNav_left p[b-hao0u6080a] {
+    font-size: 1rem;
+}
+
+#mainNav_left h1[b-hao0u6080a] {
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+#mainNav_right[b-hao0u6080a] {
+    padding-right: 1rem;
+}
+
+#mainNav_right ul[b-hao0u6080a] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    list-style: none;
+}
+
+#mainNav_right ul a[b-hao0u6080a] {
+    padding: 1.4rem .8rem;
+    font-weight: 600;
+}
+
+#mainNav_right ul a:hover[b-hao0u6080a] {
+    background-color: #53719e;
+}

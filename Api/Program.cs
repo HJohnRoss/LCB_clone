@@ -38,7 +38,23 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+// NOTE: Allowing my frontend to connect to my API
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowBlazorClient", policy =>
+    {
+        policy.WithOrigins("http://localhost:5246") // Blazor WASM port
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
+
+// NOTE: Allowing my frontend to connect to my API
+app.UseCors("AllowBlazorClient");
+
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())

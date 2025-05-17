@@ -1,0 +1,24 @@
+#home[b-qkqvtk7xtj] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#home_middle[b-qkqvtk7xtj] {
+    text-align: center;
+}
+
+.home_middle_h1[b-qkqvtk7xtj] {
+    font-weight: 400;
+    line-height: 1.1;
+    font-size: 1.7em;
+}
+
+#gold-hr[b-qkqvtk7xtj] {
+    width: 25em;
+    border-top: solid 1px #cc9900;
+}
+
+.home_middle_img[b-qkqvtk7xtj] {
+    display: inline;
+}

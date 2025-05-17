@@ -1,6 +1,6 @@
 @page "/"
-
-<link href="css/Home.css" rel="stylesheet"/>
+@inject HttpClient Http
+@using LCB_Clone_Backend.Models
 
 <PageTitle>Nevada Legislature</PageTitle>
 
@@ -61,3 +61,26 @@
 
 	</div>
 </div>
+
+
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+
+        var requestUri = "HearingRoomMeeting/GetAll";
+        var HearingRoomMeetings = await Http.GetFromJsonAsync<List<HearingRoomMeetingModel>>(requestUri);
+
+        if (HearingRoomMeetings != null && HearingRoomMeetings.Any())
+        {
+            foreach (var HearingRoomMeeting in HearingRoomMeetings)
+            {
+                Console.WriteLine($"HearingRoomMeeting ID: {HearingRoomMeeting.Id} {HearingRoomMeeting.MeetingName} ");// Adjust properties accordingly
+            }
+        }
+        else
+        {
+            Console.WriteLine("No HearingRoomMeetings found or list is empty.");
+        }
+    }
+}

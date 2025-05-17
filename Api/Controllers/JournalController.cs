@@ -6,22 +6,21 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ExhibitsController : ControllerBase
+    public class JournalController : ControllerBase
     {
-        private readonly ExhibitData _exhibitsData;
+        private readonly JournalData _journalData;
 
-        public ExhibitsController(ExhibitData exhibitData)
+        public JournalController(JournalData journalData)
         {
-            _exhibitsData = exhibitData;
+            _journalData = journalData;
         }
 
         [HttpGet("GetAll")]
-        public ActionResult<List<ExhibitModel>> GetAll()
+        public ActionResult<List<JournalModel>> GetAll()
         {
             try
             {
-                List<ExhibitModel> result = _exhibitsData.GetAll()
-                    ?? throw new InvalidDataException("result GetAll is null");
+                List<JournalModel> result = _journalData.GetAll();
                 return Ok(result);
             }
             catch (Exception ex)

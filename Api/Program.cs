@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 // NOTE: getting connection string from config
 string connectionString = builder.Configuration.GetConnectionString("Default")
     ?? throw new InvalidOperationException("Connection string Default not found");
-
 // NOTE: Register SqlDataAccess for database operations
 builder.Services.AddScoped<SqlDataAccess>(_ =>
     new SqlDataAccess(connectionString)
@@ -24,9 +23,14 @@ builder.Services.AddScoped<BillData>();
 builder.Services.AddScoped<BudgetData>();
 builder.Services.AddScoped<CommitteData>();
 builder.Services.AddScoped<ExhibitData>();
+builder.Services.AddScoped<FiscalNoteData>();
 builder.Services.AddScoped<HearingRoomMeetingData>();
+builder.Services.AddScoped<JournalData>();
 builder.Services.AddScoped<LegislativeMeetingData>();
 builder.Services.AddScoped<LegislatorData>();
+builder.Services.AddScoped<LegislatorVoteData>();
+builder.Services.AddScoped<SessionData>();
+builder.Services.AddScoped<SessionMeetingData>();
 builder.Services.AddScoped<StaffMemberData>();
 
 // Add services to the container

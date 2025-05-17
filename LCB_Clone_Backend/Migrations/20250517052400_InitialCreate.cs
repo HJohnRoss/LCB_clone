@@ -390,20 +390,21 @@ namespace LCB_Clone_Backend.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Vote = table.Column<string>(type: "TEXT", nullable: true),
-                    LegislatorId = table.Column<int>(type: "INTEGER", nullable: true),
-                    BillModelId = table.Column<int>(type: "INTEGER", nullable: true)
+                    BillId = table.Column<int>(type: "INTEGER", nullable: false),
+                    LegislatorModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LegislatorVotes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LegislatorVotes_Bills_BillModelId",
-                        column: x => x.BillModelId,
+                        name: "FK_LegislatorVotes_Bills_BillId",
+                        column: x => x.BillId,
                         principalTable: "Bills",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_LegislatorVotes_Legislators_LegislatorId",
-                        column: x => x.LegislatorId,
+                        name: "FK_LegislatorVotes_Legislators_LegislatorModelId",
+                        column: x => x.LegislatorModelId,
                         principalTable: "Legislators",
                         principalColumn: "Id");
                 });
@@ -484,14 +485,14 @@ namespace LCB_Clone_Backend.Migrations
                 column: "LegislativeMeetingModelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LegislatorVotes_BillModelId",
+                name: "IX_LegislatorVotes_BillId",
                 table: "LegislatorVotes",
-                column: "BillModelId");
+                column: "BillId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LegislatorVotes_LegislatorId",
+                name: "IX_LegislatorVotes_LegislatorModelId",
                 table: "LegislatorVotes",
-                column: "LegislatorId");
+                column: "LegislatorModelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SessionMeetings_SessionModelId",

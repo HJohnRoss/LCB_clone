@@ -31,6 +31,10 @@ namespace LCB_Clone_Backend.Models
         public List<string> OtherAchivements { get; set; } = new();
         public List<string> Affiliations { get; set; } = new();
         public List<string> Education { get; set; } = new();
+
+        // Votes
+        public List<LegislatorVoteModel> Votes { get; set; } = new();
+
         // Personal Info
         public required string Occupation { get; set; }
         public required string Recreation { get; set; }

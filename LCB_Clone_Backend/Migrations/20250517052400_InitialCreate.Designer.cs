@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LCB_Clone_Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250516161516_InitialCreate")]
+    [Migration("20250517052400_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -473,10 +473,10 @@ namespace LCB_Clone_Backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("BillModelId")
+                    b.Property<int>("BillId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("LegislatorId")
+                    b.Property<int?>("LegislatorModelId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Vote")
@@ -484,9 +484,9 @@ namespace LCB_Clone_Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BillModelId");
+                    b.HasIndex("BillId");
 
-                    b.HasIndex("LegislatorId");
+                    b.HasIndex("LegislatorModelId");
 
                     b.ToTable("LegislatorVotes");
                 });
@@ -716,15 +716,17 @@ namespace LCB_Clone_Backend.Migrations
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.LegislatorVoteModel", b =>
                 {
-                    b.HasOne("LCB_Clone_Backend.Models.BillModel", null)
+                    b.HasOne("LCB_Clone_Backend.Models.BillModel", "Bill")
                         .WithMany("Votes")
-                        .HasForeignKey("BillModelId");
+                        .HasForeignKey("BillId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasOne("LCB_Clone_Backend.Models.LegislatorModel", "Legislator")
-                        .WithMany()
-                        .HasForeignKey("LegislatorId");
+                    b.HasOne("LCB_Clone_Backend.Models.LegislatorModel", null)
+                        .WithMany("Votes")
+                        .HasForeignKey("LegislatorModelId");
 
-                    b.Navigation("Legislator");
+                    b.Navigation("Bill");
                 });
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.StaffMemberModel", b =>
@@ -781,6 +783,8 @@ namespace LCB_Clone_Backend.Migrations
             modelBuilder.Entity("LCB_Clone_Backend.Models.LegislatorModel", b =>
                 {
                     b.Navigation("Committees");
+
+                    b.Navigation("Votes");
                 });
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.SessionModel", b =>

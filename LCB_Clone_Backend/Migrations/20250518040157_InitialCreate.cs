@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -11,6 +10,20 @@ namespace LCB_Clone_Backend.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Agendas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FilePath = table.Column<string>(type: "TEXT", nullable: false),
+                    FileName = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Agendas", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Budgets",
                 columns: table => new
@@ -39,33 +52,14 @@ namespace LCB_Clone_Backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "HearingRoomMeetings",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    MeetingName = table.Column<string>(type: "TEXT", nullable: false),
-                    YoutubeLink = table.Column<string>(type: "TEXT", nullable: true),
-                    CCRoomNumber = table.Column<string>(type: "TEXT", nullable: true),
-                    IsCCMainRoom = table.Column<bool>(type: "INTEGER", nullable: false),
-                    LVRoomNumber = table.Column<string>(type: "TEXT", nullable: true),
-                    Time = table.Column<string>(type: "TEXT", nullable: false),
-                    Date = table.Column<string>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_HearingRoomMeetings", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Journals",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    LegislativeDay = table.Column<string>(type: "TEXT", nullable: false),
                     FilePath = table.Column<string>(type: "TEXT", nullable: false),
-                    Date = table.Column<string>(type: "TEXT", nullable: false)
+                    DayNum = table.Column<string>(type: "TEXT", nullable: false),
+                    IsSenate = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -87,6 +81,32 @@ namespace LCB_Clone_Backend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Sessions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "HearingRoomMeetings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    MeetingName = table.Column<string>(type: "TEXT", nullable: false),
+                    YoutubeLink = table.Column<string>(type: "TEXT", nullable: true),
+                    CCRoomNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    IsCCMainRoom = table.Column<bool>(type: "INTEGER", nullable: false),
+                    LVRoomNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    Time = table.Column<string>(type: "TEXT", nullable: false),
+                    Date = table.Column<string>(type: "TEXT", nullable: false),
+                    AgendaId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_HearingRoomMeetings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_HearingRoomMeetings_Agendas_AgendaId",
+                        column: x => x.AgendaId,
+                        principalTable: "Agendas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -114,31 +134,14 @@ namespace LCB_Clone_Backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Agendas",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    FilePath = table.Column<string>(type: "TEXT", nullable: true),
-                    FileName = table.Column<string>(type: "TEXT", nullable: true),
-                    BillsId = table.Column<int>(type: "INTEGER", nullable: false),
-                    UploadedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Agendas", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Amendments",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    FilePath = table.Column<string>(type: "TEXT", nullable: true),
-                    FileName = table.Column<string>(type: "TEXT", nullable: true),
-                    UploadedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    BillId = table.Column<int>(type: "INTEGER", nullable: false)
+                    FilePath = table.Column<string>(type: "TEXT", nullable: false),
+                    FileName = table.Column<string>(type: "TEXT", nullable: false),
+                    BillModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -175,6 +178,7 @@ namespace LCB_Clone_Backend.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    AgendaId = table.Column<int>(type: "INTEGER", nullable: true),
                     PrimarySponsoringSessionId = table.Column<int>(type: "INTEGER", nullable: true),
                     CoSponsoringSessionId = table.Column<int>(type: "INTEGER", nullable: true),
                     SessionModelId = table.Column<int>(type: "INTEGER", nullable: true)
@@ -182,6 +186,11 @@ namespace LCB_Clone_Backend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bills", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Bills_Agendas_AgendaId",
+                        column: x => x.AgendaId,
+                        principalTable: "Agendas",
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Bills_Sessions_SessionModelId",
                         column: x => x.SessionModelId,
@@ -195,21 +204,19 @@ namespace LCB_Clone_Backend.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    FilePath = table.Column<string>(type: "TEXT", nullable: true),
-                    FileName = table.Column<string>(type: "TEXT", nullable: true),
-                    UploadedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    BillId = table.Column<int>(type: "INTEGER", nullable: false),
+                    FilePath = table.Column<string>(type: "TEXT", nullable: false),
+                    FileName = table.Column<string>(type: "TEXT", nullable: false),
+                    BillModelId = table.Column<int>(type: "INTEGER", nullable: true),
                     BudgetModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Exhibits", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Exhibits_Bills_BillId",
-                        column: x => x.BillId,
+                        name: "FK_Exhibits_Bills_BillModelId",
+                        column: x => x.BillModelId,
                         principalTable: "Bills",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Exhibits_Budgets_BudgetModelId",
                         column: x => x.BudgetModelId,
@@ -223,20 +230,18 @@ namespace LCB_Clone_Backend.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    FilePath = table.Column<string>(type: "TEXT", nullable: true),
-                    FileName = table.Column<string>(type: "TEXT", nullable: true),
-                    UploadedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    BillId = table.Column<int>(type: "INTEGER", nullable: false)
+                    FilePath = table.Column<string>(type: "TEXT", nullable: false),
+                    FileName = table.Column<string>(type: "TEXT", nullable: false),
+                    BillModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_FiscalNotes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FiscalNotes_Bills_BillId",
-                        column: x => x.BillId,
+                        name: "FK_FiscalNotes_Bills_BillModelId",
+                        column: x => x.BillModelId,
                         principalTable: "Bills",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -383,18 +388,17 @@ namespace LCB_Clone_Backend.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Vote = table.Column<string>(type: "TEXT", nullable: true),
-                    BillId = table.Column<int>(type: "INTEGER", nullable: false),
+                    BillModelId = table.Column<int>(type: "INTEGER", nullable: true),
                     LegislatorModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_LegislatorVotes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_LegislatorVotes_Bills_BillId",
-                        column: x => x.BillId,
+                        name: "FK_LegislatorVotes_Bills_BillModelId",
+                        column: x => x.BillModelId,
                         principalTable: "Bills",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_LegislatorVotes_Legislators_LegislatorModelId",
                         column: x => x.LegislatorModelId,
@@ -403,14 +407,9 @@ namespace LCB_Clone_Backend.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Agendas_BillsId",
-                table: "Agendas",
-                column: "BillsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Amendments_BillId",
+                name: "IX_Amendments_BillModelId",
                 table: "Amendments",
-                column: "BillId");
+                column: "BillModelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_BillLegislatorCoSponsor_LegislatorId",
@@ -421,6 +420,11 @@ namespace LCB_Clone_Backend.Migrations
                 name: "IX_BillLegislatorPrimarySponsor_LegislatorId",
                 table: "BillLegislatorPrimarySponsor",
                 column: "LegislatorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bills_AgendaId",
+                table: "Bills",
+                column: "AgendaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bills_CoSponsoringSessionId",
@@ -448,9 +452,9 @@ namespace LCB_Clone_Backend.Migrations
                 column: "LegislatorModelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Exhibits_BillId",
+                name: "IX_Exhibits_BillModelId",
                 table: "Exhibits",
-                column: "BillId");
+                column: "BillModelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Exhibits_BudgetModelId",
@@ -458,9 +462,14 @@ namespace LCB_Clone_Backend.Migrations
                 column: "BudgetModelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FiscalNotes_BillId",
+                name: "IX_FiscalNotes_BillModelId",
                 table: "FiscalNotes",
-                column: "BillId");
+                column: "BillModelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_HearingRoomMeetings_AgendaId",
+                table: "HearingRoomMeetings",
+                column: "AgendaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_LegislativeMeetings_BillModelId",
@@ -473,9 +482,9 @@ namespace LCB_Clone_Backend.Migrations
                 column: "LegislativeMeetingModelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LegislatorVotes_BillId",
+                name: "IX_LegislatorVotes_BillModelId",
                 table: "LegislatorVotes",
-                column: "BillId");
+                column: "BillModelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_LegislatorVotes_LegislatorModelId",
@@ -493,20 +502,11 @@ namespace LCB_Clone_Backend.Migrations
                 column: "LegislativeMeetingModelId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Agendas_Bills_BillsId",
-                table: "Agendas",
-                column: "BillsId",
-                principalTable: "Bills",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Amendments_Bills_BillId",
+                name: "FK_Amendments_Bills_BillModelId",
                 table: "Amendments",
-                column: "BillId",
+                column: "BillModelId",
                 principalTable: "Bills",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_BillLegislatorCoSponsor_Bills_BillId",
@@ -565,9 +565,6 @@ namespace LCB_Clone_Backend.Migrations
                 table: "LegislativeMeetings");
 
             migrationBuilder.DropTable(
-                name: "Agendas");
-
-            migrationBuilder.DropTable(
                 name: "Amendments");
 
             migrationBuilder.DropTable(
@@ -617,6 +614,9 @@ namespace LCB_Clone_Backend.Migrations
 
             migrationBuilder.DropTable(
                 name: "HearingRoomMeetings");
+
+            migrationBuilder.DropTable(
+                name: "Agendas");
         }
     }
 }

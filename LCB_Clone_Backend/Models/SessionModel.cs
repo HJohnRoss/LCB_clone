@@ -26,6 +26,5 @@ namespace LCB_Clone_Backend.Models
 
         // NOTE: Tracking Section
         public string? UserManualPath { get; set; }
-
     }
 }

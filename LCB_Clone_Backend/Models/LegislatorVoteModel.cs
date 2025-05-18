@@ -4,7 +4,5 @@ namespace LCB_Clone_Backend.Models
     {
         public int Id { get; set; }
         public string? Vote { get; set; }
-
-        public required BillModel Bill { get; set; }
     }
 }

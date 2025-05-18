@@ -11,24 +11,24 @@ namespace LCB_Clone_Backend.Data
             _db = db;
         }
 
-        public List<HearingRoomMeetingModel> GetAll()
+        public async Task<List<HearingRoomMeetingModel>> GetAll()
         {
             string query = "SELECT * FROM HearingRoomMeetings;";
 
-            List<HearingRoomMeetingModel> result = _db.LoadData<HearingRoomMeetingModel, dynamic>(query, new { }).ToList()
+            List<HearingRoomMeetingModel> result = await _db.LoadData<HearingRoomMeetingModel, dynamic>(query, new { })
                 ?? throw new InvalidDataException("HearingRoomMeeting GetAll is null");
             return result;
         }
 
         // TODO: ADD AGENDA MODEL
-        public void Create(string meetingName, string youtubeLink, string ccRoomNumber, bool isCCMainRoom, string lvRoomNumber, string time, string data)
+        public async Task Create(string meetingName, string youtubeLink, string ccRoomNumber, bool isCCMainRoom, string lvRoomNumber, string time, string data)
         {
             string query = @"
                 INSERT INTO HearingRoomMeetings (MeetingName, YoutubeLink, CCRoomNumber, IsCCMainRoom, LVRoomNumber, Time, Date)
                 VALUES (@meetingName, @youtubeLink, @ccRoomNumber, @isCCMainRoom, @lvRoomNumber, @time, @data);
                 ";
 
-            _db.SaveData(
+            await _db.SaveData(
                     query,
                     new { meetingName, youtubeLink, ccRoomNumber, isCCMainRoom, lvRoomNumber, time, data }
                     );

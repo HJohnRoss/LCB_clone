@@ -11,11 +11,11 @@ namespace LCB_Clone_Backend.Data
             _db = db;
         }
 
-        public List<SessionModel> GetAll()
+        public async Task<List<SessionModel>> GetAll()
         {
             string query = "SELECT * FROM Sessions;";
 
-            List<SessionModel> result = _db.LoadData<SessionModel, dynamic>(query, new { })
+            List<SessionModel> result = await _db.LoadData<SessionModel, dynamic>(query, new { })
                 ?? throw new InvalidDataException("Sessions Get All is null");
             return result;
         }

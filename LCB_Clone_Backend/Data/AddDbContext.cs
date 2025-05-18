@@ -20,9 +20,11 @@ namespace LCB_Clone_Backend.Data
         public DbSet<LegislativeMeetingModel> LegislativeMeetings => Set<LegislativeMeetingModel>();
         public DbSet<LegislatorModel> Legislators => Set<LegislatorModel>();
         public DbSet<LegislatorVoteModel> LegislatorVotes => Set<LegislatorVoteModel>();
+        public DbSet<SessionCommitteeModel> SessionCommittees => Set<SessionCommitteeModel>();
         public DbSet<SessionMeetingModel> SessionMeetings => Set<SessionMeetingModel>();
         public DbSet<SessionModel> Sessions => Set<SessionModel>();
         public DbSet<StaffMemberModel> StaffMembers => Set<StaffMemberModel>();
+        public DbSet<WorkSessionDocModel> WorkSessions => Set<WorkSessionDocModel>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,6 +35,7 @@ namespace LCB_Clone_Backend.Data
             modelBuilder.Entity<HearingRoomMeetingModel>().ToTable("HearingRoomMeetings");
             modelBuilder.Entity<LegislativeMeetingModel>().ToTable("LegislativeMeetings");
             modelBuilder.Entity<SessionMeetingModel>().ToTable("SessionMeetings");
+            modelBuilder.Entity<SessionCommitteeModel>().ToTable("SessionCommittees");
 
             BillSetup(modelBuilder);
         }
@@ -41,6 +44,7 @@ namespace LCB_Clone_Backend.Data
         {
 
             // Define a many-to-many relationship between BillModel and LegislatorModel
+            // This is creating a table
             modelBuilder.Entity<BillModel>()
                 .HasMany(b => b.PrimarySponsors) // Bill has many CoSponsors
                 .WithMany(l => l.PrimarySponsorBills) // Legislator has many Bills they co-sponsor
@@ -59,18 +63,23 @@ namespace LCB_Clone_Backend.Data
                     j => j.HasOne<BillModel>().WithMany().HasForeignKey("BillId")
                     );
 
-
-
+            // Sponsored Relationship
             modelBuilder.Entity<BillModel>()
-                .HasOne(b => b.PrimarySponsoringSession)
-                .WithMany(s => s.PrimarySponsoredBills)
-                .HasForeignKey(b => b.PrimarySponsoringSessionId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasMany(b => b.SessionCommitteeSponsors)
+                .WithMany(sc => sc.SponsoredBills)
+                .UsingEntity<Dictionary<string, object>>(
+                    "BillSessionCommitteeSponsor",
+                    j => j.HasOne<SessionCommitteeModel>().WithMany().HasForeignKey("SessionCommitteeId"),
+                    j => j.HasOne<BillModel>().WithMany().HasForeignKey("BillId")
+                );
 
+            // Creates One 2 many between Bills and Session Committee
+            // NOTE:
+            // This is needed because I have multiple instances of BillModels in SessionCommittees Table
             modelBuilder.Entity<BillModel>()
-                .HasOne(b => b.CoSponsoringSession)
-                .WithMany(s => s.CoSponsoredBills)
-                .HasForeignKey(b => b.CoSponsoringSessionId)
+                .HasOne(b => b.DiscussedByCommittee)
+                .WithMany(sc => sc.BillsDiscussed)
+                .HasForeignKey(b => b.DiscussedByCommitteeId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }

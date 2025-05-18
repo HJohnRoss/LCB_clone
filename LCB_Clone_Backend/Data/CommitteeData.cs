@@ -11,13 +11,13 @@ namespace LCB_Clone_Backend.Data
             _db = db;
         }
 
-        public List<CommitteeModel> GetAll()
+        public async Task<List<CommitteeModel>> GetAll()
         {
             // TODO: Finish query
             string committeeQuery = @"SELECT * FROM Committees";
 
 
-            List<CommitteeModel> committeeResult = _db.LoadData<CommitteeModel, dynamic>(committeeQuery, new { }).ToList()
+            List<CommitteeModel> committeeResult = await _db.LoadData<CommitteeModel, dynamic>(committeeQuery, new { })
                 ?? throw new InvalidDataException("Committee GetAll query is null");
             return committeeResult;
         }

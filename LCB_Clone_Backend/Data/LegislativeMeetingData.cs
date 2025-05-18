@@ -11,11 +11,11 @@ namespace LCB_Clone_Backend.Data
             _db = db;
         }
 
-        public List<LegislativeMeetingModel> GetAll()
+        public async Task<List<LegislativeMeetingModel>> GetAll()
         {
-            string query = "SELECT * FROM LegislativeMeetings ;";
+            string query = "SELECT * FROM LegislativeMeetings;";
 
-            List<LegislativeMeetingModel> result = _db.LoadData<LegislativeMeetingModel, dynamic>(query, new { }).ToList()
+            List<LegislativeMeetingModel> result = await _db.LoadData<LegislativeMeetingModel, dynamic>(query, new { })
                 ?? throw new InvalidDataException("Legislative Meeting Get All is null");
             return result;
         }

@@ -18,12 +18,12 @@ namespace Api.Controllers
 
         // GET api/amendment
         [HttpGet("GetAll")]
-        public ActionResult<List<AmendmentModel>> GetAll()
+        public async Task<ActionResult<List<AmendmentModel>>> GetAll()
         {
             try
             {
                 // Fetch amendments using the AmendmentData service
-                List<AmendmentModel> result = _amendmentData.GetAll();
+                List<AmendmentModel> result = await _amendmentData.GetAll();
                 return Ok(result); // Return 200 OK with the data
             }
             catch (Exception ex)
@@ -33,11 +33,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetOne/{id}")]
-        public ActionResult<AmendmentModel> GetOne(int id)
+        public async Task<ActionResult<AmendmentModel>> GetOne(int id)
         {
             try
             {
-                AmendmentModel result = _amendmentData.GetOne(id);
+                AmendmentModel result = await _amendmentData.GetOne(id);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -47,21 +47,21 @@ namespace Api.Controllers
         }
 
         [HttpPut("Update/{id}/{filePath}/{fileName}")]
-        public void Update(int id, string filePath, string fileName)
+        public async Task Update(int id, string filePath, string fileName)
         {
-            _amendmentData.Update(id, filePath, fileName);
+            await _amendmentData.Update(id, filePath, fileName);
         }
 
         [HttpPost("Create/{filePath}/{fileName}")]
-        public void Create(string filePath, string fileName)
+        public async Task Create(string filePath, string fileName)
         {
-            _amendmentData.Create(filePath, fileName);
+            await _amendmentData.Create(filePath, fileName);
         }
 
         [HttpDelete("Delete/{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _amendmentData.Delete(id);
+            await _amendmentData.Delete(id);
         }
     }
 }

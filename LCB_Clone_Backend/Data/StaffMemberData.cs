@@ -11,11 +11,11 @@ namespace LCB_Clone_Backend.Data
             _db = db;
         }
 
-        public List<StaffMemberModel> GetAll()
+        public async Task<List<StaffMemberModel>> GetAll()
         {
             string query = "SELECT * FROM StaffMembers;";
 
-            List<StaffMemberModel> result = _db.LoadData<StaffMemberModel, dynamic>(query, new { })
+            List<StaffMemberModel> result = await _db.LoadData<StaffMemberModel, dynamic>(query, new { })
                 ?? throw new InvalidDataException("StaffMembers Get All returning null");
             return result;
         }

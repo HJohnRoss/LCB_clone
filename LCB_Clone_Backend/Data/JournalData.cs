@@ -11,11 +11,11 @@ namespace LCB_Clone_Backend.Data
             _db = db;
         }
 
-        public List<JournalModel> GetAll()
+        public async Task<List<JournalModel>> GetAll()
         {
             string query = "SELECT * FROM Journals;";
 
-            List<JournalModel> result = _db.LoadData<JournalModel, dynamic>(query, new { })
+            List<JournalModel> result = await _db.LoadData<JournalModel, dynamic>(query, new { })
                 ?? throw new InvalidDataException("Journals Get All returning null");
             return result;
         }

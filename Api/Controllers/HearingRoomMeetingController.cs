@@ -16,11 +16,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetAll")]
-        public ActionResult<List<HearingRoomMeetingModel>> GetAll()
+        public async Task<ActionResult<List<HearingRoomMeetingModel>>> GetAll()
         {
             try
             {
-                List<HearingRoomMeetingModel> result = _hearingRoomMeetingData.GetAll()
+                List<HearingRoomMeetingModel> result = await _hearingRoomMeetingData.GetAll()
                     ?? throw new InvalidDataException("Hearing Room Meeting get all is null");
                 return Ok(result);
             }
@@ -31,10 +31,9 @@ namespace Api.Controllers
         }
 
         [HttpPost("Create")]
-        public void Create(string meetingName, string youtubeLink, string ccRoomNumber, bool isCCMainRoom, string lvRoomNumber, string time, string date)
+        public async Task Create(string meetingName, string youtubeLink, string ccRoomNumber, bool isCCMainRoom, string lvRoomNumber, string time, string date)
         {
-            _hearingRoomMeetingData.Create(meetingName, youtubeLink, ccRoomNumber, isCCMainRoom, lvRoomNumber, time, date);
-            // _hearingRoomMeetingData.Create("Name1", "youtubelink1", "1234", true, "1", "11 am", "11/11/25");
+            await _hearingRoomMeetingData.Create(meetingName, youtubeLink, ccRoomNumber, isCCMainRoom, lvRoomNumber, time, date);
         }
     }
 }

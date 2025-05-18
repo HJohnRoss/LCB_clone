@@ -15,12 +15,12 @@ namespace Api.Controllers
             _budgetData = budgetData;
         }
 
-        [HttpGet("all")]
-        public ActionResult<List<BudgetModel>> GetAll()
+        [HttpGet("GetAll")]
+        public async Task<ActionResult<List<BudgetModel>>> GetAll()
         {
             try
             {
-                List<BudgetModel> result = _budgetData.GetAll();
+                List<BudgetModel> result = await _budgetData.GetAll();
                 return Ok(result);
             }
             catch (Exception ex)

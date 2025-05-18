@@ -10,7 +10,7 @@
         public string? LVRoomNumber { get; set; }
         public required string Time { get; set; }
         public required string Date { get; set; }
-        // TODO: FIX THIS 
+
         public required AgendaModel Agenda { get; set; }
     }
 }

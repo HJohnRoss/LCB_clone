@@ -11,17 +11,17 @@ namespace LCB_Clone_Backend.Data
             _db = db;
         }
 
-        public List<AmendmentModel> GetAll()
+        public async Task<List<AmendmentModel>> GetAll()
         {
             string query = @"
                 SELECT Id, FilePath, FileName FROM Amendments;
             ";
 
-            return _db.LoadData<AmendmentModel, dynamic>(query, new { }).ToList()
+            return await _db.LoadData<AmendmentModel, dynamic>(query, new { })
                 ?? throw new InvalidDataException("Amendments GetAll query is null");
         }
 
-        public AmendmentModel GetOne(int id)
+        public async Task<AmendmentModel> GetOne(int id)
         {
             string query = @"
                 SELECT Id, FilePath, FileName
@@ -29,11 +29,15 @@ namespace LCB_Clone_Backend.Data
                 WHERE Id = @id;
             ";
 
-            return _db.LoadData<AmendmentModel, dynamic>(query, new { id }).FirstOrDefault()
+            List<AmendmentModel> results = await _db.LoadData<AmendmentModel, dynamic>(query, new { id })
                 ?? throw new InvalidDataException("Amendments GetOne query is null");
+
+            AmendmentModel result = results.FirstOrDefault()
+                ?? throw new InvalidDataException($"Amendment Id: {id} is null");
+            return result;
         }
 
-        public void Create(string filePath, string fileName)
+        public async Task Create(string filePath, string fileName)
         {
             string query = @"
                 INSERT INTO Amendments
@@ -41,10 +45,10 @@ namespace LCB_Clone_Backend.Data
                 VALUES ( @filePath, @fileName );
             ";
 
-            _db.SaveData(query, new { filePath, fileName });
+            await _db.SaveData(query, new { filePath, fileName });
         }
 
-        public void Update(int id, string filePath, string fileName)
+        public async Task Update(int id, string filePath, string fileName)
         {
             string query = @"
                 UPDATE Amendments
@@ -53,17 +57,17 @@ namespace LCB_Clone_Backend.Data
                 WHERE Id = @id;
             ";
 
-            _db.SaveData(query, new { id, filePath, fileName });
+            await _db.SaveData(query, new { id, filePath, fileName });
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
             string query = @"
                 DELETE FROM Amendments
                 WHERE Id = @id;
             ";
 
-            _db.SaveData(query, new { id });
+            await _db.SaveData(query, new { id });
         }
     }
 }

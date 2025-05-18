@@ -16,11 +16,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetAll")]
-        public ActionResult<List<AgendaModel>> GetAll()
+        public async Task<ActionResult<List<AgendaModel>>> GetAll()
         {
             try
             {
-                List<AgendaModel> result = _agendaData.GetAll()
+                List<AgendaModel> result = await _agendaData.GetAll()
                     ?? throw new InvalidDataException("GetAll Agendas query is null");
                 return Ok(result);
             }
@@ -32,11 +32,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetOne/{id}")]
-        public ActionResult<AgendaModel> GetOne(int id)
+        public async Task<ActionResult<AgendaModel>> GetOne(int id)
         {
             try
             {
-                AgendaModel result = _agendaData.GetOne(id)
+                AgendaModel result = await _agendaData.GetOne(id)
                     ?? throw new InvalidDataException("GetOne Agendas query is null");
                 return Ok(result);
             }
@@ -47,21 +47,21 @@ namespace Api.Controllers
         }
 
         [HttpPost("Create")]
-        public void Create(string filePath, string fileName)
+        public async Task Create(string filePath, string fileName)
         {
-            _agendaData.Create(filePath, fileName);
+            await _agendaData.Create(filePath, fileName);
         }
 
         [HttpDelete("Delete/{id}")]
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
-            _agendaData.Delete(id);
+            await _agendaData.Delete(id);
         }
 
         [HttpPut("Update/{id}/{filePath}/{fileName}")]
-        public void Update(int id, string filePath, string fileName)
+        public async Task Update(int id, string filePath, string fileName)
         {
-            _agendaData.Update(id, filePath, fileName);
+            await _agendaData.Update(id, filePath, fileName);
         }
     }
 }

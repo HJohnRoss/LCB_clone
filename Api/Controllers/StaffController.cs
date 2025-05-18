@@ -16,11 +16,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetAll")]
-        public ActionResult<List<StaffMemberModel>> GetAll()
+        public async Task<ActionResult<List<StaffMemberModel>>> GetAll()
         {
             try
             {
-                List<StaffMemberModel> result = _staffMemberData.GetAll()
+                List<StaffMemberModel> result = await _staffMemberData.GetAll()
                     ?? throw new InvalidDataException("Staff Memeber data get all is null");
                 return Ok(result);
             }

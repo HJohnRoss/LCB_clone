@@ -16,11 +16,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetAll")]
-        public ActionResult<List<JournalModel>> GetAll()
+        public async Task<ActionResult<List<JournalModel>>> GetAll()
         {
             try
             {
-                List<JournalModel> result = _journalData.GetAll();
+                List<JournalModel> result = await _journalData.GetAll();
                 return Ok(result);
             }
             catch (Exception ex)

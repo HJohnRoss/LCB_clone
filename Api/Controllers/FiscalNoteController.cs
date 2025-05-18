@@ -16,11 +16,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetAll")]
-        public ActionResult<List<FiscalNoteModel>> GetAll()
+        public async Task<ActionResult<List<FiscalNoteModel>>> GetAll()
         {
             try
             {
-                List<FiscalNoteModel> result = _fiscalNoteData.GetAll();
+                List<FiscalNoteModel> result = await _fiscalNoteData.GetAll();
                 return Ok(result);
             }
             catch (Exception ex)

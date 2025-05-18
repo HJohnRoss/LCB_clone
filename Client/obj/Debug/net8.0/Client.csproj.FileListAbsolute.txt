@@ -1026,6 +1026,13 @@
 /home/john/code/LCB_Clone/LCB_Clone/Client/obj/Debug/net8.0/refint/Client.dll
 /home/john/code/LCB_Clone/LCB_Clone/Client/obj/Debug/net8.0/Client.pdb
 /home/john/code/LCB_Clone/LCB_Clone/Client/obj/Debug/net8.0/ref/Client.dll
+/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.csproj.AssemblyReference.cache
+/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.GeneratedMSBuildEditorConfig.editorconfig
+/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.AssemblyInfoInputs.cache
+/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.AssemblyInfo.cs
+/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.csproj.CoreCompileInputs.cache
+/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.MvcApplicationPartsAssemblyInfo.cache
+/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.sourcelink.json
 /home/john/code/LCB_clone/Client/bin/Debug/net8.0/wwwroot/_framework/blazor.boot.json
 /home/john/code/LCB_clone/Client/bin/Debug/net8.0/wwwroot/_framework/blazor.webassembly.js
 /home/john/code/LCB_clone/Client/bin/Debug/net8.0/wwwroot/_framework/Client.pdb
@@ -1682,13 +1689,6 @@
 /home/john/code/LCB_clone/Client/bin/Debug/net8.0/icudt_no_CJK.dat
 /home/john/code/LCB_clone/Client/bin/Debug/net8.0/LCB_Clone_Backend.dll
 /home/john/code/LCB_clone/Client/bin/Debug/net8.0/LCB_Clone_Backend.pdb
-/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.csproj.AssemblyReference.cache
-/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.GeneratedMSBuildEditorConfig.editorconfig
-/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.AssemblyInfoInputs.cache
-/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.AssemblyInfo.cs
-/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.csproj.CoreCompileInputs.cache
-/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.MvcApplicationPartsAssemblyInfo.cache
-/home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.sourcelink.json
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/webcil/Dapper.wasm
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/webcil/Microsoft.AspNetCore.Authorization.wasm
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/webcil/Microsoft.AspNetCore.Components.wasm
@@ -1903,7 +1903,10 @@
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Client.props
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Client.props
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/staticwebassets.pack.json
+/home/john/code/LCB_clone/Client/obj/Debug/net8.0/scopedcss/Layout/MainNav.razor.rz.scp.css
+/home/john/code/LCB_clone/Client/obj/Debug/net8.0/scopedcss/Pages/Home.razor.rz.scp.css
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/scopedcss/bundle/Client.styles.css
+/home/john/code/LCB_clone/Client/obj/Debug/net8.0/scopedcss/projectbundle/Client.bundle.scp.css
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/compressed/1tq0gvswbr.gz
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/compressed/8z1ipnzlhf.gz
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/compressed/68v1iclbny.gz
@@ -2128,6 +2131,3 @@
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/refint/Client.dll
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/Client.pdb
 /home/john/code/LCB_clone/Client/obj/Debug/net8.0/ref/Client.dll
-/home/john/code/LCB_clone/Client/obj/Debug/net8.0/scopedcss/Layout/MainNav.razor.rz.scp.css
-/home/john/code/LCB_clone/Client/obj/Debug/net8.0/scopedcss/Pages/Home.razor.rz.scp.css
-/home/john/code/LCB_clone/Client/obj/Debug/net8.0/scopedcss/projectbundle/Client.bundle.scp.css

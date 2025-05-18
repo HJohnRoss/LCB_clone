@@ -17,11 +17,11 @@ namespace Api.Controllers
 
 
         [HttpGet("GetAll")]
-        public ActionResult<List<BillModel>> GetAll()
+        public async Task<ActionResult<List<BillModel>>> GetAll()
         {
             try
             {
-                List<BillModel> result = _billData.GetAll()
+                List<BillModel> result = await _billData.GetAll()
                     ?? throw new InvalidDataException("GetAll Bills Query is null");
                 return Ok(result);
             }

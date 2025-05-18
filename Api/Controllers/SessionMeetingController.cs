@@ -16,11 +16,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetAll")]
-        public ActionResult<List<SessionMeetingModel>> GetAll()
+        public async Task<ActionResult<List<SessionMeetingModel>>> GetAll()
         {
             try
             {
-                List<SessionMeetingModel> result = _sessionMeetingData.GetAll();
+                List<SessionMeetingModel> result = await _sessionMeetingData.GetAll();
                 return Ok(result);
             }
             catch (Exception ex)

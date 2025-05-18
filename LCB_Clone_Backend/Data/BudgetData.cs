@@ -11,11 +11,11 @@ namespace LCB_Clone_Backend.Data
             _db = db;
         }
 
-        public List<BudgetModel> GetAll()
+        public async Task<List<BudgetModel>> GetAll()
         {
             string query = "SELECT * FROM Budgets";
 
-            List<BudgetModel> result = _db.LoadData<BudgetModel, dynamic>(query, new { })
+            List<BudgetModel> result = await _db.LoadData<BudgetModel, dynamic>(query, new { })
                 ?? throw new InvalidDataException("Budgets GetAll failed");
             return result;
         }

@@ -15,20 +15,20 @@ namespace LCB_Clone_Backend
             _connectionString = connectionString;
         }
 
-        public List<T> LoadData<T, U>(string query, U parameters)
+        public async Task<List<T>> LoadData<T, U>(string query, U parameters)
         {
             using (IDbConnection connection = new SqliteConnection(_connectionString))
             {
-                List<T> rows = connection.Query<T>(query, parameters).ToList();
-                return rows;
+                IEnumerable<T> rows = await connection.QueryAsync<T>(query, parameters);
+                return rows.ToList();
             }
         }
 
-        public void SaveData<T>(string query, T parameters)
+        public async Task SaveData<T>(string query, T parameters)
         {
             using (IDbConnection connection = new SqliteConnection(_connectionString))
             {
-                connection.Execute(query, parameters);
+                await connection.ExecuteAsync(query, parameters);
             }
         }
     }

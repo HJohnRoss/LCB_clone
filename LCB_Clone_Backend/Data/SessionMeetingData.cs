@@ -11,11 +11,11 @@ namespace LCB_Clone_Backend.Data
             _db = db;
         }
 
-        public List<SessionMeetingModel> GetAll()
+        public async Task<List<SessionMeetingModel>> GetAll()
         {
             string query = "SELECT * FROM SessionMeetings;";
 
-            List<SessionMeetingModel> result = _db.LoadData<SessionMeetingModel, dynamic>(query, new { })
+            List<SessionMeetingModel> result = await _db.LoadData<SessionMeetingModel, dynamic>(query, new { })
                 ?? throw new InvalidDataException("SessionMeetings GetAll is null");
             return result;
         }

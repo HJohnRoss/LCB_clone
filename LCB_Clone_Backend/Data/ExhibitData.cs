@@ -11,11 +11,11 @@ namespace LCB_Clone_Backend.Data
             _db = db;
         }
 
-        public List<ExhibitModel> GetAll()
+        public async Task<List<ExhibitModel>> GetAll()
         {
             string query = @"SELECT * FROM Exhibits;";
 
-            List<ExhibitModel> result = _db.LoadData<ExhibitModel, dynamic>(query, new { }).ToList()
+            List<ExhibitModel> result = await _db.LoadData<ExhibitModel, dynamic>(query, new { })
                 ?? throw new InvalidDataException("Exhibits query returning null");
             return result;
         }

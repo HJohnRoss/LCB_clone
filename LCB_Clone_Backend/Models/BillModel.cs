@@ -5,18 +5,25 @@
         public int Id { get; set; }
 
         public required List<LegislativeMeetingModel> PreviousMeetings { get; set; } = new();
+
         public required List<LegislatorVoteModel> Votes { get; set; } = new();
+
         public required List<AmendmentModel> Amendments { get; set; } = new();
+
         public required List<ExhibitModel> Exhibits { get; set; } = new();
+
         public required List<LegislatorModel> PrimarySponsors { get; set; } = new();
+
         public required List<LegislatorModel> CoSponsors { get; set; } = new();
+
         public AgendaModel? Agenda { get; set; }
+
         public List<FiscalNoteModel> FiscalNotes { get; set; } = new();
 
-        public int? PrimarySponsoringSessionId { get; set; }
-        public SessionMeetingModel? PrimarySponsoringSession { get; set; }
+        public List<SessionCommitteeModel> SessionCommitteeSponsors { get; set; } = new();
 
-        public int? CoSponsoringSessionId { get; set; }
-        public SessionMeetingModel? CoSponsoringSession { get; set; }
+        // needed for one to many
+        public int? DiscussedByCommitteeId { get; set; }
+        public SessionCommitteeModel? DiscussedByCommittee { get; set; }
     }
 }

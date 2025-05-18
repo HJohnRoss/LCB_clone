@@ -11,11 +11,11 @@ namespace LCB_Clone_Backend.Data
             _db = db;
         }
 
-        public List<FiscalNoteModel> GetAll()
+        public async Task<List<FiscalNoteModel>> GetAll()
         {
             string query = "SELECT * FROM FiscalNotes;";
 
-            List<FiscalNoteModel> result = _db.LoadData<FiscalNoteModel, dynamic>(query, new { })
+            List<FiscalNoteModel> result = await _db.LoadData<FiscalNoteModel, dynamic>(query, new { })
                 ?? throw new InvalidDataException("Fiscal note Get All query is null");
             return result;
         }

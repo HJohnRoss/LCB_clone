@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -17,7 +18,8 @@ namespace LCB_Clone_Backend.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     FilePath = table.Column<string>(type: "TEXT", nullable: false),
-                    FileName = table.Column<string>(type: "TEXT", nullable: false)
+                    FileName = table.Column<string>(type: "TEXT", nullable: false),
+                    BillId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -90,6 +92,7 @@ namespace LCB_Clone_Backend.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     FilePath = table.Column<string>(type: "TEXT", nullable: false),
                     FileName = table.Column<string>(type: "TEXT", nullable: false),
+                    BillId = table.Column<int>(type: "INTEGER", nullable: false),
                     BillModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -127,6 +130,12 @@ namespace LCB_Clone_Backend.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Summary = table.Column<string>(type: "TEXT", nullable: false),
+                    IntroDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    EffectLocalGov = table.Column<bool>(type: "INTEGER", nullable: false),
+                    EffectState = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Title = table.Column<string>(type: "TEXT", nullable: false),
+                    Digest = table.Column<string>(type: "TEXT", nullable: false),
                     AgendaId = table.Column<int>(type: "INTEGER", nullable: true),
                     DiscussedByCommitteeId = table.Column<int>(type: "INTEGER", nullable: true),
                     SessionMeetingModelId = table.Column<int>(type: "INTEGER", nullable: true),
@@ -155,6 +164,7 @@ namespace LCB_Clone_Backend.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     FilePath = table.Column<string>(type: "TEXT", nullable: false),
                     FileName = table.Column<string>(type: "TEXT", nullable: false),
+                    BillId = table.Column<int>(type: "INTEGER", nullable: false),
                     BillModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -174,6 +184,7 @@ namespace LCB_Clone_Backend.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     House = table.Column<string>(type: "TEXT", nullable: false),
+                    BillId = table.Column<int>(type: "INTEGER", nullable: false),
                     BillModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -307,6 +318,7 @@ namespace LCB_Clone_Backend.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Vote = table.Column<string>(type: "TEXT", nullable: true),
+                    BillId = table.Column<int>(type: "INTEGER", nullable: false),
                     BillModelId = table.Column<int>(type: "INTEGER", nullable: true),
                     LegislatorModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
@@ -433,6 +445,7 @@ namespace LCB_Clone_Backend.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     FilePath = table.Column<string>(type: "TEXT", nullable: false),
                     FileName = table.Column<string>(type: "TEXT", nullable: false),
+                    BillId = table.Column<int>(type: "INTEGER", nullable: false),
                     BillModelId = table.Column<int>(type: "INTEGER", nullable: true),
                     BudgetModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },

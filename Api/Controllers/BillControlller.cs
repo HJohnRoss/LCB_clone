@@ -22,13 +22,47 @@ namespace Api.Controllers
             try
             {
                 List<BillModel> result = await _billData.GetAll()
-                    ?? throw new InvalidDataException("GetAll Bills Query is null");
+                    ?? throw new InvalidDataException("Bills GetAll uery is null");
                 return Ok(result);
             }
             catch (Exception ex)
             {
                 return StatusCode(500, ex.Message);
             }
+        }
+
+        [HttpGet("GetOne/{id}")]
+        public async Task<ActionResult<BillModel>> GetOne(int id)
+        {
+            try
+            {
+                BillModel result = await _billData.GetOne(id)
+                    ?? throw new InvalidDataException("Bills GetOne Query is null");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpPost("Create")]
+        public async Task Create(
+                string summmary,
+                DateTime introDate,
+                bool effectLocalGov,
+                bool effectState,
+                string title,
+                string digest
+                )
+        {
+            await _billData.Create(summmary, introDate, effectLocalGov, effectState, title, digest);
+        }
+
+        [HttpDelete("Delete/{id}")]
+        public async Task Delete(int id)
+        {
+            await _billData.Delete(id);
         }
     }
 }

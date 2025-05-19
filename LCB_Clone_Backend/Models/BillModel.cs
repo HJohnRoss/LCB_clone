@@ -4,17 +4,24 @@
     {
         public int Id { get; set; }
 
-        public required List<LegislativeMeetingModel> PreviousMeetings { get; set; } = new();
+        public required string Summary { get; set; }
+        public required DateTime IntroDate { get; set; }
+        public required bool EffectLocalGov { get; set; }
+        public required bool EffectState { get; set; }
+        public required string Title { get; set; }
+        public required string Digest { get; set; }
 
-        public required List<LegislatorVoteModel> Votes { get; set; } = new();
+        public List<LegislativeMeetingModel> PreviousMeetings { get; set; } = new();
 
-        public required List<AmendmentModel> Amendments { get; set; } = new();
+        public List<LegislatorVoteModel> Votes { get; set; } = new();
 
-        public required List<ExhibitModel> Exhibits { get; set; } = new();
+        public List<AmendmentModel> Amendments { get; set; } = new();
 
-        public required List<LegislatorModel> PrimarySponsors { get; set; } = new();
+        public List<ExhibitModel> Exhibits { get; set; } = new();
 
-        public required List<LegislatorModel> CoSponsors { get; set; } = new();
+        public List<LegislatorModel> PrimarySponsors { get; set; } = new();
+
+        public List<LegislatorModel> CoSponsors { get; set; } = new();
 
         public AgendaModel? Agenda { get; set; }
 

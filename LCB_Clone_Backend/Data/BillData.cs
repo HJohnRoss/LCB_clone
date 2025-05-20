@@ -43,22 +43,109 @@ namespace LCB_Clone_Backend.Data
             return await GatherBillData(bill);
         }
 
+        // TODO: This is bugged for a fact
         public async Task Create(
                 string summary,
                 DateTime introDate,
                 bool effectLocalGov,
                 bool effectState,
                 string title,
-                string digest
+                string digest,
+                int? discussedByCommitteeId = null,
+                int? sessionMeetingModelId = null,
+                int? sessionModelId = null
                 )
         {
+            // NOTE: Validating queries
+            List<string> columns = new();
+            List<string> values = new();
 
-            string query = @"
-                INSERT INTO Bills (Summary, IntroDate, EffectLocalGov, EffectState, Title, Digest)
-                VALUES (@summary, @introDate, @effectLocalGov, @effectState, @title, @digest);
+            await ValidateId(
+                    discussedByCommitteeId,
+                    "discussedByCommitteeId",
+                    "DiscussedByCommitteeId",
+                    "SessionCommittees",
+                    columns,
+                    values
+                    );
+            await ValidateId(
+                    sessionMeetingModelId,
+                    "sessionMeetingModelId",
+                    "SessionMeetingModelId",
+                    "SessionMeetings",
+                    columns,
+                    values);
+            await ValidateId(
+                    sessionModelId,
+                    "SessionModelId",
+                    "sessionModelId",
+                    "Sessions",
+                    columns,
+                    values);
+
+            string strColumns = GetStringValue(columns);
+            string strValues = GetStringValue(values);
+
+            string query = $@"
+                INSERT INTO Bills (Summary, IntroDate, EffectLocalGov, EffectState, Title, Digest, {strColumns})
+                VALUES (@summary, @introDate, @effectLocalGov, @effectState, @title, @digest, {strValues});
             ";
 
-            await _db.SaveData(query, new { summary, introDate, effectLocalGov, effectState, title, digest });
+            await _db.SaveData(
+                    query,
+                    new
+                    {
+                        summary,
+                        introDate,
+                        effectLocalGov,
+                        effectState,
+                        title,
+                        digest,
+                        discussedByCommitteeId,
+                        sessionMeetingModelId,
+                        sessionModelId
+                    });
+        }
+
+        // Helper function for Create Function
+        public string GetStringValue(List<string> arr)
+        {
+            string result = String.Empty;
+            for (int i = 0; i < arr.Count; i++)
+            {
+                if (i > 0)
+                {
+                    result += $", {arr[i]}";
+                }
+                else
+                {
+                    result += $"{arr[i]}";
+                }
+            }
+            return result;
+        }
+
+        public async Task ValidateId(
+                int? id,
+                string idVarName,
+                string idTableName,
+                string tableName,
+                List<string> Columns,
+                List<string> Values
+                )
+        {
+            string query = $@"
+                        SELECT * FROM {tableName}
+                        WHERE Id = @id;
+                    ";
+            List<SessionCommitteeModel> results = await _db.LoadData<SessionCommitteeModel, dynamic>(query, new { id })
+                ?? throw new InvalidDataException($"{tableName} GetOne is invalid");
+
+            if (results.FirstOrDefault() != null)
+            {
+                Columns.Add($"{idTableName}");
+                Values.Add($"@{idVarName}");
+            }
         }
 
         public async Task Delete(int id)
@@ -70,10 +157,123 @@ namespace LCB_Clone_Backend.Data
             await _db.SaveData(query, new { Id = id });
         }
 
-        //TODO:
-        // public async Task Update(int id)
-        // {
-        // }
+        // TODO: this function
+        public async Task Update(
+                int id,
+                string? summary = null,
+                DateTime? introDate = null,
+                bool? effectLocalGov = null,
+                bool? effectState = null,
+                string? title = null,
+                string? digest = null,
+                int? agendaId = null,
+                int? discussedByCommitteeId = null,
+                int? sessionMeetingModelId = null,
+                int? sessionModelId = null
+                )
+        {
+            List<string> columns = new();
+            List<string> values = new();
+
+            // Gather data
+            if (summary != null)
+            {
+                columns.Add("Summary");
+                values.Add("@summary");
+            }
+            if (introDate != null)
+            {
+                columns.Add("IntroDate");
+                values.Add("@introDate");
+            }
+            if (effectLocalGov != null)
+            {
+                columns.Add("EffectLocalGov");
+                values.Add("@effectLocalGov");
+            }
+            if (effectState != null)
+            {
+                columns.Add("EffectState");
+                values.Add("@effectState");
+            }
+            if (title != null)
+            {
+                columns.Add("Title");
+                values.Add("@title");
+            }
+            if (digest != null)
+            {
+                columns.Add("Digest");
+                values.Add("@digest");
+            }
+
+            await ValidateId(
+                    discussedByCommitteeId,
+                    "discussedByCommitteeId",
+                    "DiscussedByCommitteeId",
+                    "SessionCommittees",
+                    columns,
+                    values
+                    );
+            await ValidateId(
+                    sessionMeetingModelId,
+                    "sessionMeetingModelId",
+                    "SessionMeetingModelId",
+                    "SessionMeetings",
+                    columns,
+                    values);
+            await ValidateId(
+                    sessionModelId,
+                    "SessionModelId",
+                    "sessionModelId",
+                    "Sessions",
+                    columns,
+                    values);
+
+            string insertValues = GetInsertValues(columns, values);
+
+            string query = $@"
+                    UPDATE Bills 
+                    SET {insertValues}
+                    WHERE Id = @id
+            ";
+
+            await _db.SaveData(
+                    query,
+                    new
+                    {
+                        id,
+                        summary,
+                        introDate,
+                        effectLocalGov,
+                        effectState,
+                        title,
+                        digest,
+                        agendaId,
+                        discussedByCommitteeId,
+                        sessionMeetingModelId,
+                        sessionModelId
+                    });
+        }
+
+        // Heper function to get string insert data
+        public string GetInsertValues(List<string> columns, List<string> values)
+        {
+            string result = "";
+            if (columns.Count != values.Count)
+            {
+                throw new InvalidDataException("Columns array count != values array count");
+            }
+
+            int i = 0;
+            for (; i < columns.Count - 1; i++)
+            {
+                result += $"{columns[i]} = {values[i]}, ";
+            }
+            result += $"{columns[i]} = {values[i]}";
+
+            return result;
+        }
 
         // helper function to get all bill data
         public async Task<BillModel> GatherBillData(BillModel bill)
@@ -129,19 +329,6 @@ namespace LCB_Clone_Backend.Data
                 ";
             bill.CoSponsors = await _db.LoadData<LegislatorModel, dynamic>(query, new { BillId = bill.Id })
                 ?? throw new InvalidDataException("Co Sponsors query is null");
-
-            // Agenda
-            query = @"
-                    SELECT * FROM Agendas
-                    WHERE BillId = @BillId;
-                ";
-            List<AgendaModel> agendas = await _db.LoadData<AgendaModel, dynamic>(query, new { BillId = bill.Id });
-            // ?? throw new InvalidDataException("Agenda query is null");
-            if (agendas != null)
-            {
-                bill.Agenda = agendas.FirstOrDefault();
-            }
-            // ?? throw new InvalidDataException("Agendas List was null");
 
             // Fiscal Notes
             query = @"

@@ -53,10 +53,51 @@ namespace Api.Controllers
                 bool effectLocalGov,
                 bool effectState,
                 string title,
-                string digest
+                string digest,
+                int? discussedByCommitteeId = null,
+                int? sessionMeetingModelId = null,
+                int? sessionModelId = null
                 )
         {
-            await _billData.Create(summmary, introDate, effectLocalGov, effectState, title, digest);
+            await _billData.Create(
+                    summmary,
+                    introDate,
+                    effectLocalGov,
+                    effectState,
+                    title,
+                    digest,
+                    discussedByCommitteeId,
+                    sessionMeetingModelId,
+                    sessionModelId
+                    );
+        }
+
+        [HttpPut("Update/{id}")]
+        public async Task Update(
+                int id,
+                string? summary = null,
+                DateTime? introDate = null,
+                bool? effectLocalGov = null,
+                bool? effectState = null,
+                string? title = null,
+                string? digest = null,
+                int? discussedByCommitteeId = null,
+                int? sessionMeetingModelId = null,
+                int? sessionModelId = null
+                )
+        {
+            await _billData.Update(
+                    id,
+                    summary,
+                    introDate,
+                    effectLocalGov,
+                    effectState,
+                    title,
+                    digest,
+                    discussedByCommitteeId,
+                    sessionMeetingModelId,
+                    sessionModelId
+                    );
         }
 
         [HttpDelete("Delete/{id}")]

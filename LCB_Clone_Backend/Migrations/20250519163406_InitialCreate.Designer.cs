@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LCB_Clone_Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250519034131_InitialCreate")]
+    [Migration("20250519163406_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -86,9 +86,6 @@ namespace LCB_Clone_Backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("BillId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("FileName")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -135,9 +132,6 @@ namespace LCB_Clone_Backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AgendaId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Digest")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -169,8 +163,6 @@ namespace LCB_Clone_Backend.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AgendaId");
 
                     b.HasIndex("DiscussedByCommitteeId");
 
@@ -734,10 +726,6 @@ namespace LCB_Clone_Backend.Migrations
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.BillModel", b =>
                 {
-                    b.HasOne("LCB_Clone_Backend.Models.AgendaModel", "Agenda")
-                        .WithMany()
-                        .HasForeignKey("AgendaId");
-
                     b.HasOne("LCB_Clone_Backend.Models.SessionCommitteeModel", "DiscussedByCommittee")
                         .WithMany("BillsDiscussed")
                         .HasForeignKey("DiscussedByCommitteeId")
@@ -750,8 +738,6 @@ namespace LCB_Clone_Backend.Migrations
                     b.HasOne("LCB_Clone_Backend.Models.SessionModel", null)
                         .WithMany("Bills")
                         .HasForeignKey("SessionModelId");
-
-                    b.Navigation("Agenda");
 
                     b.Navigation("DiscussedByCommittee");
                 });

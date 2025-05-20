@@ -23,8 +23,6 @@
 
         public List<LegislatorModel> CoSponsors { get; set; } = new();
 
-        public AgendaModel? Agenda { get; set; }
-
         public List<FiscalNoteModel> FiscalNotes { get; set; } = new();
 
         public List<SessionCommitteeModel> SessionCommitteeSponsors { get; set; } = new();

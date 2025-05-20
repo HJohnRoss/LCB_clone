@@ -11,6 +11,6 @@
         public required string Time { get; set; }
         public required string Date { get; set; }
 
-        public required AgendaModel Agenda { get; set; }
+        public AgendaModel Agenda { get; set; } = null!;
     }
 }

@@ -3745,11 +3745,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/john/code/LCB_clone/Api/Api.csproj",
+      "projectUniqueName": "/home/john/code/LCB_Clone/Api/Api.csproj",
       "projectName": "Api",
-      "projectPath": "/home/john/code/LCB_clone/Api/Api.csproj",
+      "projectPath": "/home/john/code/LCB_Clone/Api/Api.csproj",
       "packagesPath": "/home/john/.nuget/packages/",
-      "outputPath": "/home/john/code/LCB_clone/Api/obj/",
+      "outputPath": "/home/john/code/LCB_Clone/Api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/john/.nuget/NuGet/NuGet.Config"
@@ -3764,8 +3764,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/john/code/LCB_clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj": {
-              "projectPath": "/home/john/code/LCB_clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj"
+            "/home/john/code/LCB_Clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj": {
+              "projectPath": "/home/john/code/LCB_Clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj"
             }
           }
         }
@@ -3827,6 +3827,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.15, 8.0.15]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -3835,7 +3841,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/john/.dotnet/sdk/8.0.408/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.408/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

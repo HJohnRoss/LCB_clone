@@ -8,6 +8,7 @@ namespace LCB_Clone_Backend.Data
         public AppDbContext(DbContextOptions<AppDbContext> options)
             : base(options) { }
 
+        // Creating Sql Tables
         public DbSet<AgendaModel> Agendas => Set<AgendaModel>();
         public DbSet<AmendmentModel> Amendments => Set<AmendmentModel>();
         public DbSet<BillModel> Bills => Set<BillModel>();

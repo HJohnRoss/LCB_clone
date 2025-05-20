@@ -16,6 +16,6 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = LCB_Clone_Backend
-build_property.ProjectDir = /home/john/code/LCB_clone/LCB_Clone_Backend/
+build_property.ProjectDir = /home/john/code/LCB_Clone/LCB_Clone_Backend/
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

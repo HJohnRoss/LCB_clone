@@ -28,5 +28,19 @@ namespace Api.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpGet("GetOne/{id}")]
+        public async Task<ActionResult<BudgetModel>> GetOne(int id)
+        {
+            try
+            {
+                BudgetModel result = await _budgetData.GetOne(id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
     }
 };

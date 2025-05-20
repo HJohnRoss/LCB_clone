@@ -18,8 +18,7 @@ namespace LCB_Clone_Backend.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     FilePath = table.Column<string>(type: "TEXT", nullable: false),
-                    FileName = table.Column<string>(type: "TEXT", nullable: false),
-                    BillId = table.Column<int>(type: "INTEGER", nullable: false)
+                    FileName = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -136,7 +135,6 @@ namespace LCB_Clone_Backend.Migrations
                     EffectState = table.Column<bool>(type: "INTEGER", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: false),
                     Digest = table.Column<string>(type: "TEXT", nullable: false),
-                    AgendaId = table.Column<int>(type: "INTEGER", nullable: true),
                     DiscussedByCommitteeId = table.Column<int>(type: "INTEGER", nullable: true),
                     SessionMeetingModelId = table.Column<int>(type: "INTEGER", nullable: true),
                     SessionModelId = table.Column<int>(type: "INTEGER", nullable: true)
@@ -144,11 +142,6 @@ namespace LCB_Clone_Backend.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bills", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Bills_Agendas_AgendaId",
-                        column: x => x.AgendaId,
-                        principalTable: "Agendas",
-                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Bills_Sessions_SessionModelId",
                         column: x => x.SessionModelId,
@@ -502,11 +495,6 @@ namespace LCB_Clone_Backend.Migrations
                 name: "IX_BillLegislatorPrimarySponsor_LegislatorId",
                 table: "BillLegislatorPrimarySponsor",
                 column: "LegislatorId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Bills_AgendaId",
-                table: "Bills",
-                column: "AgendaId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bills_DiscussedByCommitteeId",

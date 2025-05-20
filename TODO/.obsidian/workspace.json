@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "BackEnd/TO DO.md",
+                "file": "Notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "TO DO"
+              "title": "Notes"
             }
           }
         ]
@@ -166,12 +166,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a6d4a8745bb6a9cb",
+  "active": "2f6316aac9e79517",
   "lastOpenFiles": [
+    "TODO.md",
+    "Notes.md",
+    "BackEnd/TO DO.md",
+    "Data/TO DO.md",
     "Untitled.canvas",
     "FrontEnd/TO DO.md",
-    "Data/TO DO.md",
-    "BackEnd/TO DO.md",
     "TODO/TODO.md",
     "Data",
     "BackEnd",

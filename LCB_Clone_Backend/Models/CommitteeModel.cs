@@ -7,10 +7,10 @@ namespace LCB_Clone_Backend.Models
 
         public required string House { get; set; }
 
-        public required List<LegislatorModel> LegislativeMembers = new();
+        public required List<LegislatorModel> LegislativeMembers { get; set; } = new();
 
-        public required List<StaffMemberModel> StaffMembers = new();
+        public required List<StaffMemberModel> StaffMembers { get; set; } = new();
 
-        public required List<LegislativeMeetingModel> Meetings = new();
+        public required List<LegislativeMeetingModel> Meetings { get; set; } = new();
     }
 }

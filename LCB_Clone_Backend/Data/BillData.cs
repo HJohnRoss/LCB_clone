@@ -1,4 +1,5 @@
 using LCB_Clone_Backend.Models;
+using LCB_Clone_Backend.Helpers;
 
 namespace LCB_Clone_Backend.Data
 {
@@ -83,8 +84,8 @@ namespace LCB_Clone_Backend.Data
                     columns,
                     values);
 
-            string strColumns = GetStringValue(columns);
-            string strValues = GetStringValue(values);
+            string strColumns = DataHelper.GetStringValue(columns);
+            string strValues = DataHelper.GetStringValue(values);
 
             string query = $@"
                 INSERT INTO Bills (Summary, IntroDate, EffectLocalGov, EffectState, Title, Digest, {strColumns})
@@ -105,24 +106,6 @@ namespace LCB_Clone_Backend.Data
                         sessionMeetingModelId,
                         sessionModelId
                     });
-        }
-
-        // Helper function for Create Function
-        public string GetStringValue(List<string> arr)
-        {
-            string result = String.Empty;
-            for (int i = 0; i < arr.Count; i++)
-            {
-                if (i > 0)
-                {
-                    result += $", {arr[i]}";
-                }
-                else
-                {
-                    result += $"{arr[i]}";
-                }
-            }
-            return result;
         }
 
         public async Task ValidateId(
@@ -230,7 +213,7 @@ namespace LCB_Clone_Backend.Data
                     columns,
                     values);
 
-            string insertValues = GetInsertValues(columns, values);
+            string insertValues = DataHelper.GetInsertValues(columns, values);
 
             string query = $@"
                     UPDATE Bills 
@@ -254,25 +237,6 @@ namespace LCB_Clone_Backend.Data
                         sessionMeetingModelId,
                         sessionModelId
                     });
-        }
-
-        // Heper function to get string insert data
-        public string GetInsertValues(List<string> columns, List<string> values)
-        {
-            string result = "";
-            if (columns.Count != values.Count)
-            {
-                throw new InvalidDataException("Columns array count != values array count");
-            }
-
-            int i = 0;
-            for (; i < columns.Count - 1; i++)
-            {
-                result += $"{columns[i]} = {values[i]}, ";
-            }
-            result += $"{columns[i]} = {values[i]}";
-
-            return result;
         }
 
         // helper function to get all bill data

@@ -13,13 +13,43 @@ namespace LCB_Clone_Backend.Data
 
         public async Task<List<CommitteeModel>> GetAll()
         {
-            // TODO: Finish query
-            string committeeQuery = @"SELECT * FROM Committees";
+            string query = "SELECT * FROM Committees;";
 
-
-            List<CommitteeModel> committeeResult = await _db.LoadData<CommitteeModel, dynamic>(committeeQuery, new { })
+            List<CommitteeModel> result = await _db.LoadData<CommitteeModel, dynamic>(query, new { })
                 ?? throw new InvalidDataException("Committee GetAll query is null");
-            return committeeResult;
+
+            return result;
+        }
+
+        public async Task<CommitteeModel> GetOne(int id)
+        {
+            string query = @"
+                    SELECT * FROM Committees
+                    WHERE Id = @id;
+            ";
+
+            List<CommitteeModel> results = await _db.LoadData<CommitteeModel, dynamic>(query, new { id });
+            CommitteeModel result = results.FirstOrDefault()
+                ?? throw new InvalidDataException("Committees Get One query failed");
+            return result;
+        }
+
+        public async Task Create(int id, string house)
+        {
+            string query = @"
+                    INSERT INTO Committees (House)
+                    VALUES (@house)
+                    WHERE Id = @id;
+            ";
+
+            await _db.SaveData(query, new { id, house });
+        }
+
+        public async Task Update(int id, string house)
+        {
+            string query = @"
+
+                ";
         }
     }
 }

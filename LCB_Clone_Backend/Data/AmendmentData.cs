@@ -1,4 +1,5 @@
 using LCB_Clone_Backend.Models;
+using LCB_Clone_Backend.Helpers;
 
 namespace LCB_Clone_Backend.Data
 {
@@ -48,12 +49,27 @@ namespace LCB_Clone_Backend.Data
             await _db.SaveData(query, new { filePath, fileName });
         }
 
-        public async Task Update(int id, string filePath, string fileName)
+        public async Task Update(int id, string? filePath, string? fileName)
         {
-            string query = @"
+            List<string> columns = new();
+            List<string> values = new();
+
+            if (filePath != null)
+            {
+                columns.Add("FilePath");
+                values.Add("@filePath");
+            }
+            if (fileName != null)
+            {
+                columns.Add("FileName");
+                values.Add("@fileName");
+            }
+
+            string insertStr = DataHelper.GetInsertValues(columns, values);
+
+            string query = $@"
                 UPDATE Amendments
-                Set FilePath = @filePath,
-                    FileName = @fileName
+                SET {insertStr}
                 WHERE Id = @id;
             ";
 

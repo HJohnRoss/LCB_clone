@@ -58,8 +58,8 @@ namespace Api.Controllers
             await _agendaData.Delete(id);
         }
 
-        [HttpPut("Update/{id}/{filePath}/{fileName}")]
-        public async Task Update(int id, string filePath, string fileName)
+        [HttpPut("Update/{id}")]
+        public async Task Update(int id, string? filePath, string? fileName)
         {
             await _agendaData.Update(id, filePath, fileName);
         }

@@ -47,63 +47,88 @@ namespace Api.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task Create(
-                string summmary,
-                DateTime introDate,
-                bool effectLocalGov,
-                bool effectState,
-                string title,
-                string digest,
-                int? discussedByCommitteeId = null,
-                int? sessionMeetingModelId = null,
-                int? sessionModelId = null
+        public async Task<ActionResult> Create(
+                    string summmary,
+                    DateTime introDate,
+                    bool effectLocalGov,
+                    bool effectState,
+                    string title,
+                    string digest,
+                    int? discussedByCommitteeId = null,
+                    int? sessionMeetingModelId = null,
+                    int? sessionModelId = null
                 )
         {
-            await _billData.Create(
-                    summmary,
-                    introDate,
-                    effectLocalGov,
-                    effectState,
-                    title,
-                    digest,
-                    discussedByCommitteeId,
-                    sessionMeetingModelId,
-                    sessionModelId
-                    );
+            try
+            {
+                await _billData.Create(
+                            summmary,
+                            introDate,
+                            effectLocalGov,
+                            effectState,
+                            title,
+                            digest,
+                            discussedByCommitteeId,
+                            sessionMeetingModelId,
+                            sessionModelId
+                        );
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPut("Update/{id}")]
-        public async Task Update(
-                int id,
-                string? summary = null,
-                DateTime? introDate = null,
-                bool? effectLocalGov = null,
-                bool? effectState = null,
-                string? title = null,
-                string? digest = null,
-                int? discussedByCommitteeId = null,
-                int? sessionMeetingModelId = null,
-                int? sessionModelId = null
+        public async Task<ActionResult> Update(
+                    int id,
+                    string? summary = null,
+                    DateTime? introDate = null,
+                    bool? effectLocalGov = null,
+                    bool? effectState = null,
+                    string? title = null,
+                    string? digest = null,
+                    int? discussedByCommitteeId = null,
+                    int? sessionMeetingModelId = null,
+                    int? sessionModelId = null
                 )
         {
-            await _billData.Update(
-                    id,
-                    summary,
-                    introDate,
-                    effectLocalGov,
-                    effectState,
-                    title,
-                    digest,
-                    discussedByCommitteeId,
-                    sessionMeetingModelId,
-                    sessionModelId
-                    );
+            try
+            {
+                await _billData.Update(
+                            id,
+                            summary,
+                            introDate,
+                            effectLocalGov,
+                            effectState,
+                            title,
+                            digest,
+                            discussedByCommitteeId,
+                            sessionMeetingModelId,
+                            sessionModelId
+                        );
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         [HttpDelete("Delete/{id}")]
-        public async Task Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            await _billData.Delete(id);
+            try
+            {
+                await _billData.Delete(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+
         }
     }
 }

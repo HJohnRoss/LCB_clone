@@ -46,13 +46,13 @@ namespace Api.Controllers
             }
         }
 
-        [HttpPut("Update/{id}/{filePath}/{fileName}")]
-        public async Task Update(int id, string filePath, string fileName)
+        [HttpPut("Update/{id}")]
+        public async Task Update(int id, string? filePath, string? fileName)
         {
             await _amendmentData.Update(id, filePath, fileName);
         }
 
-        [HttpPost("Create/{filePath}/{fileName}")]
+        [HttpPost("Create")]
         public async Task Create(string filePath, string fileName)
         {
             await _amendmentData.Create(filePath, fileName);

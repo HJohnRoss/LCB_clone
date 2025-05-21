@@ -14,9 +14,9 @@ namespace LCB_Clone_Backend.Models
         public required string FunctionName { get; set; }
 
         public required int SubFunctionNum { get; set; }
-        public required string SubFuntionName { get; set; }
+        public required string SubFunctionName { get; set; }
 
-        public required int BudgetName { get; set; }
+        public required string BudgetName { get; set; }
 
         public required int FundNum { get; set; }
 

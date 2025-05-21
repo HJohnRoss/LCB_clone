@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LCB_Clone_Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250520224334_InitialCreate")]
+    [Migration("20250521033200_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -273,9 +273,6 @@ namespace LCB_Clone_Backend.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("BillId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("BillModelId")

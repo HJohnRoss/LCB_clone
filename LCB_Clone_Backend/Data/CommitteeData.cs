@@ -34,22 +34,35 @@ namespace LCB_Clone_Backend.Data
             return result;
         }
 
-        public async Task Create(int id, string house)
+        public async Task Create(string house)
         {
             string query = @"
                     INSERT INTO Committees (House)
-                    VALUES (@house)
+                    VALUES (@house);
+            ";
+
+            await _db.SaveData(query, new { house });
+        }
+
+        public async Task Update(int id, string house)
+        {
+            string query = @"
+                    UPDATE Committees
+                    SET House = @house
                     WHERE Id = @id;
             ";
 
             await _db.SaveData(query, new { id, house });
         }
 
-        public async Task Update(int id, string house)
+        public async Task Delete(int id)
         {
             string query = @"
+                    DELETE FROM Committees
+                    WHERE Id = @id;
+            ";
 
-                ";
+            await _db.SaveData(query, new { id });
         }
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qswVEFlXXxI=",
+  "dgSpecHash": "CA1PgsN32S4=",
   "success": true,
-  "projectFilePath": "/home/john/code/LCB_Clone/Api/Api.csproj",
+  "projectFilePath": "/home/john/code/LCB_clone/Api/Api.csproj",
   "expectedPackageFiles": [
     "/home/john/.nuget/packages/dapper/2.1.66/dapper.2.1.66.nupkg.sha512",
     "/home/john/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
@@ -61,8 +61,7 @@
     "/home/john/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/home/john/.nuget/packages/system.text.encodings.web/9.0.5/system.text.encodings.web.9.0.5.nupkg.sha512",
     "/home/john/.nuget/packages/system.text.json/9.0.5/system.text.json.9.0.5.nupkg.sha512",
-    "/home/john/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
-    "/home/john/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.15/microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512"
+    "/home/john/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oqf4/byri1E=",
+  "dgSpecHash": "25E9iyFEIMI=",
   "success": true,
-  "projectFilePath": "/home/john/code/LCB_Clone/Client/Client.csproj",
+  "projectFilePath": "/home/john/code/LCB_clone/Client/Client.csproj",
   "expectedPackageFiles": [
     "/home/john/.nuget/packages/dapper/2.1.66/dapper.2.1.66.nupkg.sha512",
     "/home/john/.nuget/packages/microsoft.aspnetcore.authorization/8.0.15/microsoft.aspnetcore.authorization.8.0.15.nupkg.sha512",
@@ -50,8 +50,7 @@
     "/home/john/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512",
     "/home/john/.nuget/packages/system.text.encodings.web/9.0.4/system.text.encodings.web.9.0.4.nupkg.sha512",
     "/home/john/.nuget/packages/system.text.json/9.0.4/system.text.json.9.0.4.nupkg.sha512",
-    "/home/john/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/8.0.15/microsoft.netcore.app.runtime.mono.browser-wasm.8.0.15.nupkg.sha512",
-    "/home/john/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.15/microsoft.aspnetcore.app.ref.8.0.15.nupkg.sha512"
+    "/home/john/.nuget/packages/microsoft.netcore.app.runtime.mono.browser-wasm/8.0.15/microsoft.netcore.app.runtime.mono.browser-wasm.8.0.15.nupkg.sha512"
   ],
   "logs": []
 }

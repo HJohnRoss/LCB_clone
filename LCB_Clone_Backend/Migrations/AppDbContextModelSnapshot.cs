@@ -272,9 +272,6 @@ namespace LCB_Clone_Backend.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("BillId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("BillModelId")
                         .HasColumnType("INTEGER");
 

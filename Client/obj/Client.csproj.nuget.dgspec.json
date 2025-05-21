@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/john/code/LCB_Clone/Client/Client.csproj": {}
+    "/home/john/code/LCB_clone/Client/Client.csproj": {}
   },
   "projects": {
-    "/home/john/code/LCB_Clone/Client/Client.csproj": {
+    "/home/john/code/LCB_clone/Client/Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/john/code/LCB_Clone/Client/Client.csproj",
+        "projectUniqueName": "/home/john/code/LCB_clone/Client/Client.csproj",
         "projectName": "Client",
-        "projectPath": "/home/john/code/LCB_Clone/Client/Client.csproj",
+        "projectPath": "/home/john/code/LCB_clone/Client/Client.csproj",
         "packagesPath": "/home/john/.nuget/packages/",
-        "outputPath": "/home/john/code/LCB_Clone/Client/obj/",
+        "outputPath": "/home/john/code/LCB_clone/Client/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/john/.nuget/NuGet/NuGet.Config"
@@ -26,8 +26,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "/home/john/code/LCB_Clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj": {
-                "projectPath": "/home/john/code/LCB_Clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj"
+              "/home/john/code/LCB_clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj": {
+                "projectPath": "/home/john/code/LCB_clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj"
               }
             }
           }
@@ -82,10 +82,6 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            },
-            {
               "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
               "version": "[8.0.15, 8.0.15]"
             }
@@ -95,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.408/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/john/.dotnet/sdk/8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -104,14 +100,14 @@
         }
       }
     },
-    "/home/john/code/LCB_Clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj": {
+    "/home/john/code/LCB_clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/john/code/LCB_Clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj",
+        "projectUniqueName": "/home/john/code/LCB_clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj",
         "projectName": "LCB_Clone_Backend",
-        "projectPath": "/home/john/code/LCB_Clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj",
+        "projectPath": "/home/john/code/LCB_clone/LCB_Clone_Backend/LCB_Clone_Backend.csproj",
         "packagesPath": "/home/john/.nuget/packages/",
-        "outputPath": "/home/john/code/LCB_Clone/LCB_Clone_Backend/obj/",
+        "outputPath": "/home/john/code/LCB_clone/LCB_Clone_Backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/john/.nuget/NuGet/NuGet.Config"
@@ -169,18 +165,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.15, 8.0.15]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.408/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/john/.dotnet/sdk/8.0.408/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

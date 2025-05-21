@@ -6,22 +6,21 @@ namespace Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ExhibitController : ControllerBase
+    public class CommitteeController : ControllerBase
     {
-        private readonly ExhibitData _exhibitsData;
+        private readonly CommitteData _committeeData;
 
-        public ExhibitController(ExhibitData exhibitData)
+        public CommitteeController(CommitteData committeData)
         {
-            _exhibitsData = exhibitData;
+            _committeeData = committeData;
         }
 
         [HttpGet("GetAll")]
-        public async Task<ActionResult<List<ExhibitModel>>> GetAll()
+        public async Task<ActionResult<List<CommitteeModel>>> GetAll()
         {
             try
             {
-                List<ExhibitModel> result = await _exhibitsData.GetAll()
-                    ?? throw new InvalidDataException("result GetAll is null");
+                List<CommitteeModel> result = await _committeeData.GetAll();
                 return Ok(result);
             }
             catch (Exception ex)
@@ -31,11 +30,11 @@ namespace Api.Controllers
         }
 
         [HttpGet("GetOne/{id}")]
-        public async Task<ActionResult<ExhibitModel>> GetOne(int id)
+        public async Task<ActionResult<CommitteeModel>> GetOne(int id)
         {
             try
             {
-                ExhibitModel result = await _exhibitsData.GetOne(id);
+                CommitteeModel result = await _committeeData.GetOne(id);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -45,11 +44,11 @@ namespace Api.Controllers
         }
 
         [HttpPost("Create")]
-        public async Task<ActionResult> Create(string filePath, string fileName)
+        public async Task<ActionResult> Create(string house)
         {
             try
             {
-                await _exhibitsData.Create(filePath, fileName);
+                await _committeeData.Create(house);
                 return Ok();
             }
             catch (Exception ex)
@@ -59,11 +58,11 @@ namespace Api.Controllers
         }
 
         [HttpPut("Update/{id}")]
-        public async Task<ActionResult> Update(int id, string? filePath, string? fileName)
+        public async Task<ActionResult> Update(int id, string house)
         {
             try
             {
-                await _exhibitsData.Update(id, filePath, fileName);
+                await _committeeData.Update(id, house);
                 return Ok();
             }
             catch (Exception ex)
@@ -77,7 +76,7 @@ namespace Api.Controllers
         {
             try
             {
-                await _exhibitsData.Delete(id);
+                await _committeeData.Delete(id);
                 return Ok();
             }
             catch (Exception ex)

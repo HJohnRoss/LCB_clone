@@ -497,7 +497,6 @@ namespace LCB_Clone_Backend.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     FilePath = table.Column<string>(type: "TEXT", nullable: false),
                     FileName = table.Column<string>(type: "TEXT", nullable: false),
-                    BillId = table.Column<int>(type: "INTEGER", nullable: false),
                     BillModelId = table.Column<int>(type: "INTEGER", nullable: true),
                     BudgetModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },

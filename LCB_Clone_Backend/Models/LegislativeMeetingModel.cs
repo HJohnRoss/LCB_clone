@@ -5,7 +5,5 @@
         public required string House { get; set; }
         public required List<LegislatorModel> LegislativeMembers { get; set; } = new();
         public required List<StaffMemberModel> MeetingStaff { get; set; } = new();
-
-        public int BillId { get; set; }
     }
 }

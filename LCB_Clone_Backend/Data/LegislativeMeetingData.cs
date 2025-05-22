@@ -19,5 +19,15 @@ namespace LCB_Clone_Backend.Data
                 ?? throw new InvalidDataException("Legislative Meeting Get All is null");
             return result;
         }
+
+        // public async Task<LegislativeMeetingModel> GatherData(LegislativeMeetingModel meeting)
+        // {
+        //     string query = @"
+        //         SELECT * FROM Bills
+        //         WHERE Id = @BillModelId;
+        //     ";
+        //     // meeting.
+        //
+        // }
     }
 }

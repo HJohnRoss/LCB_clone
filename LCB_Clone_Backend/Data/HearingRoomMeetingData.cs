@@ -46,24 +46,33 @@ namespace LCB_Clone_Backend.Data
                     string ccRoomNumber,
                     bool isCCMainRoom,
                     string lvRoomNumber,
-                    string time,
-                    string date,
+                    string? date,
                     int? agendaId
                 )
         {
-            string column = String.Empty;
-            string value = String.Empty;
+            List<string> columns = new() { "MeetingName", "YoutubeLink", "CCRoomNumber", "IsCCMainRoom", "LVRoomNumber" };
+            List<string> values = new() { "@meetingName", "@youtubeLink", "@ccRoomNumber", "@isCCMainRoom", "@lvRoomNumber" };
 
             if (agendaId != null)
             {
-                column = ", AgendaId";
-                value = ", @agendaId";
+                columns.Add("AgendaId");
+                values.Add("@agendaId");
+            }
+            if (date != null)
+            {
+                columns.Add("Date");
+                values.Add("@date");
             }
 
+            string columnStr = DataHelper.GetStringValue(columns);
+            string valueStr = DataHelper.GetStringValue(values);
+
             string query = $@"
-                INSERT INTO HearingRoomMeetings (MeetingName, YoutubeLink, CCRoomNumber, IsCCMainRoom, LVRoomNumber, Time, Date{column})
-                VALUES (@meetingName, @youtubeLink, @ccRoomNumber, @isCCMainRoom, @lvRoomNumber, @time, @date{value});
+                INSERT INTO HearingRoomMeetings ({columnStr})
+                VALUES ({valueStr});
             ";
+
+            Console.WriteLine(query);
 
             await _db.SaveData(
                         query,
@@ -74,7 +83,6 @@ namespace LCB_Clone_Backend.Data
                             ccRoomNumber,
                             isCCMainRoom,
                             lvRoomNumber,
-                            time,
                             date,
                             agendaId
                         }
@@ -99,7 +107,6 @@ namespace LCB_Clone_Backend.Data
                     string? ccRoomNumber,
                     bool? isCCMainRoom,
                     string? lvRoomNumber,
-                    string? time,
                     string? date,
                     int? agendaId
                 )
@@ -132,15 +139,15 @@ namespace LCB_Clone_Backend.Data
                 columns.Add("LVRoomNumber");
                 values.Add("@lvRoomNumber");
             }
-            if (time != null)
-            {
-                columns.Add("Time");
-                values.Add("@time");
-            }
             if (date != null)
             {
                 columns.Add("Date");
                 values.Add("@date");
+            }
+            if (agendaId != null)
+            {
+                columns.Add("AgendaId");
+                values.Add("@agendaId");
             }
 
             string insertStr = DataHelper.GetInsertValues(columns, values);
@@ -161,7 +168,6 @@ namespace LCB_Clone_Backend.Data
                         ccRoomNumber,
                         isCCMainRoom,
                         lvRoomNumber,
-                        time,
                         date,
                         agendaId
                     }

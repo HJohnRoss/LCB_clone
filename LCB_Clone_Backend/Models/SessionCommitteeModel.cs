@@ -1,7 +1,15 @@
 namespace LCB_Clone_Backend.Models
 {
-    public class SessionCommitteeModel : CommitteeModel
+    public class SessionCommitteeModel
     {
+        public int Id { get; set; }
+
+        public required string House { get; set; }
+
+        public required List<LegislatorModel> LegislativeMembers { get; set; } = new();
+
+        public required List<StaffMemberModel> StaffMembers { get; set; } = new();
+
         public string? Mon { get; set; }
 
         public string? Tues { get; set; }

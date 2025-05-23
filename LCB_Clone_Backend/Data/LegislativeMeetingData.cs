@@ -20,14 +20,17 @@ namespace LCB_Clone_Backend.Data
             return result;
         }
 
-        // public async Task<LegislativeMeetingModel> GatherData(LegislativeMeetingModel meeting)
-        // {
-        //     string query = @"
-        //         SELECT * FROM Bills
-        //         WHERE Id = @BillModelId;
-        //     ";
-        //     // meeting.
-        //
-        // }
+        public async Task<LegislativeMeetingModel> GatherData(LegislativeMeetingModel meeting)
+        {
+            string query = @"
+                SELECT * FROM Agendas
+                WHERE Id = @id;
+            ";
+            List<AgendaModel> agendas = await _db.LoadData<AgendaModel, dynamic>(query, new { id = meeting.AgendaId });
+            meeting.Agenda = agendas.FirstOrDefault();
+
+
+            return meeting;
+        }
     }
 }

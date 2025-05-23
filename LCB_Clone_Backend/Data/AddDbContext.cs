@@ -31,13 +31,6 @@ namespace LCB_Clone_Backend.Data
         {
             base.OnModelCreating(modelBuilder);
 
-
-            // 👇 Tell EF Core to use TPT for these models
-            modelBuilder.Entity<HearingRoomMeetingModel>().ToTable("HearingRoomMeetings");
-            modelBuilder.Entity<LegislativeMeetingModel>().ToTable("LegislativeMeetings");
-            modelBuilder.Entity<SessionMeetingModel>().ToTable("SessionMeetings");
-            modelBuilder.Entity<SessionCommitteeModel>().ToTable("SessionCommittees");
-
             BillSetup(modelBuilder);
         }
 

@@ -52,8 +52,7 @@ namespace Api.Controllers
                     string ccRoomNumber,
                     bool isCCMainRoom,
                     string lvRoomNumber,
-                    string time,
-                    string date,
+                    string? date,
                     int? agendaId
                 )
         {
@@ -65,7 +64,6 @@ namespace Api.Controllers
                             ccRoomNumber,
                             isCCMainRoom,
                             lvRoomNumber,
-                            time,
                             date,
                             agendaId
                         );
@@ -85,7 +83,6 @@ namespace Api.Controllers
                     string? ccRoomNumber,
                     bool? isCCMainRoom,
                     string? lvRoomNumber,
-                    string? time,
                     string? date,
                     int? agendaId
                 )
@@ -99,7 +96,6 @@ namespace Api.Controllers
                             ccRoomNumber,
                             isCCMainRoom,
                             lvRoomNumber,
-                            time,
                             date,
                             agendaId
                         );

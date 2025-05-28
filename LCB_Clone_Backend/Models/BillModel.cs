@@ -11,7 +11,7 @@
         public required string Title { get; set; }
         public required string Digest { get; set; }
 
-        public List<LegislativeMeetingModel> PreviousMeetings { get; set; } = new();
+        public List<SessionMeetingModel> PreviousMeetings { get; set; } = new();
 
         public List<LegislatorVoteModel> Votes { get; set; } = new();
 

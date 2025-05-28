@@ -247,7 +247,7 @@ namespace LCB_Clone_Backend.Data
                     SELECT * FROM LegislativeMeetings
                     WHERE BillId = @BillId;
                     ";
-            bill.PreviousMeetings = await _db.LoadData<LegislativeMeetingModel, dynamic>(query, new { BillId = bill.Id })
+            bill.PreviousMeetings = await _db.LoadData<SessionMeetingModel, dynamic>(query, new { BillId = bill.Id })
                 ?? throw new InvalidDataException("PreviousMeetings query is null");
 
             // Votes

@@ -113,6 +113,68 @@ namespace LCB_Clone_Backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "LegislativeMeetings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    House = table.Column<string>(type: "TEXT", nullable: false),
+                    MeetingName = table.Column<string>(type: "TEXT", nullable: false),
+                    YoutubeLink = table.Column<string>(type: "TEXT", nullable: true),
+                    CCRoomNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    IsCCMainRoom = table.Column<bool>(type: "INTEGER", nullable: false),
+                    LVRoomNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    Datetime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    AgendaId = table.Column<int>(type: "INTEGER", nullable: true),
+                    CommitteeId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LegislativeMeetings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_LegislativeMeetings_Agendas_AgendaId",
+                        column: x => x.AgendaId,
+                        principalTable: "Agendas",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_LegislativeMeetings_Committees_CommitteeId",
+                        column: x => x.CommitteeId,
+                        principalTable: "Committees",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Bills",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Summary = table.Column<string>(type: "TEXT", nullable: false),
+                    IntroDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    EffectLocalGov = table.Column<bool>(type: "INTEGER", nullable: false),
+                    EffectState = table.Column<bool>(type: "INTEGER", nullable: false),
+                    Title = table.Column<string>(type: "TEXT", nullable: false),
+                    Digest = table.Column<string>(type: "TEXT", nullable: false),
+                    DiscussedByCommitteeId = table.Column<int>(type: "INTEGER", nullable: true),
+                    SessionModelId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bills", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Bills_SessionCommittees_DiscussedByCommitteeId",
+                        column: x => x.DiscussedByCommitteeId,
+                        principalTable: "SessionCommittees",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Bills_Sessions_SessionModelId",
+                        column: x => x.SessionModelId,
+                        principalTable: "Sessions",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "SessionMeetings",
                 columns: table => new
                 {
@@ -141,96 +203,6 @@ namespace LCB_Clone_Backend.Migrations
                         name: "FK_SessionMeetings_Sessions_SessionModelId",
                         column: x => x.SessionModelId,
                         principalTable: "Sessions",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Bills",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Summary = table.Column<string>(type: "TEXT", nullable: false),
-                    IntroDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    EffectLocalGov = table.Column<bool>(type: "INTEGER", nullable: false),
-                    EffectState = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Title = table.Column<string>(type: "TEXT", nullable: false),
-                    Digest = table.Column<string>(type: "TEXT", nullable: false),
-                    DiscussedByCommitteeId = table.Column<int>(type: "INTEGER", nullable: true),
-                    SessionMeetingModelId = table.Column<int>(type: "INTEGER", nullable: true),
-                    SessionModelId = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Bills", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Bills_SessionCommittees_DiscussedByCommitteeId",
-                        column: x => x.DiscussedByCommitteeId,
-                        principalTable: "SessionCommittees",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_Bills_SessionMeetings_SessionMeetingModelId",
-                        column: x => x.SessionMeetingModelId,
-                        principalTable: "SessionMeetings",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Bills_Sessions_SessionModelId",
-                        column: x => x.SessionModelId,
-                        principalTable: "Sessions",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Budgets",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    DepartmentNum = table.Column<int>(type: "INTEGER", nullable: false),
-                    DepartmentName = table.Column<string>(type: "TEXT", nullable: false),
-                    AgencyNum = table.Column<int>(type: "INTEGER", nullable: false),
-                    AgencyName = table.Column<string>(type: "TEXT", nullable: false),
-                    FunctionNum = table.Column<int>(type: "INTEGER", nullable: false),
-                    FunctionName = table.Column<string>(type: "TEXT", nullable: false),
-                    SubFunctionNum = table.Column<int>(type: "INTEGER", nullable: false),
-                    SubFunctionName = table.Column<string>(type: "TEXT", nullable: false),
-                    BudgetName = table.Column<string>(type: "TEXT", nullable: false),
-                    FundNum = table.Column<int>(type: "INTEGER", nullable: false),
-                    BudgetNum = table.Column<int>(type: "INTEGER", nullable: false),
-                    ExecBudgetPage = table.Column<string>(type: "TEXT", nullable: false),
-                    Summary = table.Column<string>(type: "TEXT", nullable: true),
-                    Synopsis = table.Column<string>(type: "TEXT", nullable: true),
-                    TextFilePath = table.Column<string>(type: "TEXT", nullable: true),
-                    SessionMeetingModelId = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Budgets", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Budgets_SessionMeetings_SessionMeetingModelId",
-                        column: x => x.SessionMeetingModelId,
-                        principalTable: "SessionMeetings",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "WorkSessions",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    FilePath = table.Column<string>(type: "TEXT", nullable: false),
-                    FileName = table.Column<string>(type: "TEXT", nullable: false),
-                    SessionMeetingModelId = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_WorkSessions", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_WorkSessions_SessionMeetings_SessionMeetingModelId",
-                        column: x => x.SessionMeetingModelId,
-                        principalTable: "SessionMeetings",
                         principalColumn: "Id");
                 });
 
@@ -299,89 +271,59 @@ namespace LCB_Clone_Backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "LegislativeMeetings",
+                name: "BillModelSessionMeetingModel",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    House = table.Column<string>(type: "TEXT", nullable: false),
-                    MeetingName = table.Column<string>(type: "TEXT", nullable: false),
-                    YoutubeLink = table.Column<string>(type: "TEXT", nullable: true),
-                    CCRoomNumber = table.Column<string>(type: "TEXT", nullable: true),
-                    IsCCMainRoom = table.Column<bool>(type: "INTEGER", nullable: false),
-                    LVRoomNumber = table.Column<string>(type: "TEXT", nullable: true),
-                    Date = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    AgendaId = table.Column<int>(type: "INTEGER", nullable: true),
-                    BillModelId = table.Column<int>(type: "INTEGER", nullable: true),
-                    CommitteeModelId = table.Column<int>(type: "INTEGER", nullable: true)
+                    BillsId = table.Column<int>(type: "INTEGER", nullable: false),
+                    PreviousMeetingsId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LegislativeMeetings", x => x.Id);
+                    table.PrimaryKey("PK_BillModelSessionMeetingModel", x => new { x.BillsId, x.PreviousMeetingsId });
                     table.ForeignKey(
-                        name: "FK_LegislativeMeetings_Agendas_AgendaId",
-                        column: x => x.AgendaId,
-                        principalTable: "Agendas",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_LegislativeMeetings_Bills_BillModelId",
-                        column: x => x.BillModelId,
+                        name: "FK_BillModelSessionMeetingModel_Bills_BillsId",
+                        column: x => x.BillsId,
                         principalTable: "Bills",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_LegislativeMeetings_Committees_CommitteeModelId",
-                        column: x => x.CommitteeModelId,
-                        principalTable: "Committees",
-                        principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "BudgetModelSessionModel",
-                columns: table => new
-                {
-                    BudgetsId = table.Column<int>(type: "INTEGER", nullable: false),
-                    MeetingsId = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_BudgetModelSessionModel", x => new { x.BudgetsId, x.MeetingsId });
-                    table.ForeignKey(
-                        name: "FK_BudgetModelSessionModel_Budgets_BudgetsId",
-                        column: x => x.BudgetsId,
-                        principalTable: "Budgets",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BudgetModelSessionModel_Sessions_MeetingsId",
-                        column: x => x.MeetingsId,
-                        principalTable: "Sessions",
+                        name: "FK_BillModelSessionMeetingModel_SessionMeetings_PreviousMeetingsId",
+                        column: x => x.PreviousMeetingsId,
+                        principalTable: "SessionMeetings",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Exhibits",
+                name: "Budgets",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    FilePath = table.Column<string>(type: "TEXT", nullable: false),
-                    FileName = table.Column<string>(type: "TEXT", nullable: false),
-                    BillModelId = table.Column<int>(type: "INTEGER", nullable: true),
-                    BudgetModelId = table.Column<int>(type: "INTEGER", nullable: true)
+                    DepartmentNum = table.Column<int>(type: "INTEGER", nullable: false),
+                    DepartmentName = table.Column<string>(type: "TEXT", nullable: false),
+                    AgencyNum = table.Column<int>(type: "INTEGER", nullable: false),
+                    AgencyName = table.Column<string>(type: "TEXT", nullable: false),
+                    FunctionNum = table.Column<int>(type: "INTEGER", nullable: false),
+                    FunctionName = table.Column<string>(type: "TEXT", nullable: false),
+                    SubFunctionNum = table.Column<int>(type: "INTEGER", nullable: false),
+                    SubFunctionName = table.Column<string>(type: "TEXT", nullable: false),
+                    BudgetName = table.Column<string>(type: "TEXT", nullable: false),
+                    FundNum = table.Column<int>(type: "INTEGER", nullable: false),
+                    BudgetNum = table.Column<int>(type: "INTEGER", nullable: false),
+                    ExecBudgetPage = table.Column<string>(type: "TEXT", nullable: false),
+                    Summary = table.Column<string>(type: "TEXT", nullable: true),
+                    Synopsis = table.Column<string>(type: "TEXT", nullable: true),
+                    TextFilePath = table.Column<string>(type: "TEXT", nullable: true),
+                    SessionMeetingModelId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Exhibits", x => x.Id);
+                    table.PrimaryKey("PK_Budgets", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Exhibits_Bills_BillModelId",
-                        column: x => x.BillModelId,
-                        principalTable: "Bills",
-                        principalColumn: "Id");
-                    table.ForeignKey(
-                        name: "FK_Exhibits_Budgets_BudgetModelId",
-                        column: x => x.BudgetModelId,
-                        principalTable: "Budgets",
+                        name: "FK_Budgets_SessionMeetings_SessionMeetingModelId",
+                        column: x => x.SessionMeetingModelId,
+                        principalTable: "SessionMeetings",
                         principalColumn: "Id");
                 });
 
@@ -476,6 +418,76 @@ namespace LCB_Clone_Backend.Migrations
                         name: "FK_StaffMembers_SessionMeetings_SessionMeetingModelId",
                         column: x => x.SessionMeetingModelId,
                         principalTable: "SessionMeetings",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "WorkSessions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FilePath = table.Column<string>(type: "TEXT", nullable: false),
+                    FileName = table.Column<string>(type: "TEXT", nullable: false),
+                    SessionMeetingModelId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_WorkSessions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_WorkSessions_SessionMeetings_SessionMeetingModelId",
+                        column: x => x.SessionMeetingModelId,
+                        principalTable: "SessionMeetings",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BudgetModelSessionModel",
+                columns: table => new
+                {
+                    BudgetsId = table.Column<int>(type: "INTEGER", nullable: false),
+                    MeetingsId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BudgetModelSessionModel", x => new { x.BudgetsId, x.MeetingsId });
+                    table.ForeignKey(
+                        name: "FK_BudgetModelSessionModel_Budgets_BudgetsId",
+                        column: x => x.BudgetsId,
+                        principalTable: "Budgets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_BudgetModelSessionModel_Sessions_MeetingsId",
+                        column: x => x.MeetingsId,
+                        principalTable: "Sessions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Exhibits",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    FilePath = table.Column<string>(type: "TEXT", nullable: false),
+                    FileName = table.Column<string>(type: "TEXT", nullable: false),
+                    BillModelId = table.Column<int>(type: "INTEGER", nullable: true),
+                    BudgetModelId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Exhibits", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Exhibits_Bills_BillModelId",
+                        column: x => x.BillModelId,
+                        principalTable: "Bills",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Exhibits_Budgets_BudgetModelId",
+                        column: x => x.BudgetModelId,
+                        principalTable: "Budgets",
                         principalColumn: "Id");
                 });
 
@@ -593,14 +605,14 @@ namespace LCB_Clone_Backend.Migrations
                 column: "LegislatorId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_BillModelSessionMeetingModel_PreviousMeetingsId",
+                table: "BillModelSessionMeetingModel",
+                column: "PreviousMeetingsId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Bills_DiscussedByCommitteeId",
                 table: "Bills",
                 column: "DiscussedByCommitteeId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Bills_SessionMeetingModelId",
-                table: "Bills",
-                column: "SessionMeetingModelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bills_SessionModelId",
@@ -653,14 +665,9 @@ namespace LCB_Clone_Backend.Migrations
                 column: "AgendaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_LegislativeMeetings_BillModelId",
+                name: "IX_LegislativeMeetings_CommitteeId",
                 table: "LegislativeMeetings",
-                column: "BillModelId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_LegislativeMeetings_CommitteeModelId",
-                table: "LegislativeMeetings",
-                column: "CommitteeModelId");
+                column: "CommitteeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Legislators_LegislativeMeetingModelId",
@@ -736,6 +743,9 @@ namespace LCB_Clone_Backend.Migrations
                 name: "BillLegislatorPrimarySponsor");
 
             migrationBuilder.DropTable(
+                name: "BillModelSessionMeetingModel");
+
+            migrationBuilder.DropTable(
                 name: "BillSessionCommitteeSponsor");
 
             migrationBuilder.DropTable(
@@ -769,22 +779,22 @@ namespace LCB_Clone_Backend.Migrations
                 name: "Budgets");
 
             migrationBuilder.DropTable(
+                name: "Bills");
+
+            migrationBuilder.DropTable(
                 name: "Legislators");
 
             migrationBuilder.DropTable(
                 name: "LegislativeMeetings");
 
             migrationBuilder.DropTable(
-                name: "Bills");
-
-            migrationBuilder.DropTable(
-                name: "Committees");
-
-            migrationBuilder.DropTable(
                 name: "SessionCommittees");
 
             migrationBuilder.DropTable(
                 name: "SessionMeetings");
+
+            migrationBuilder.DropTable(
+                name: "Committees");
 
             migrationBuilder.DropTable(
                 name: "Agendas");

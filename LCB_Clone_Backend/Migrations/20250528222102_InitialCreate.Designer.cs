@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LCB_Clone_Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250522165853_InitialCreate")]
+    [Migration("20250528222102_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -48,6 +48,21 @@ namespace LCB_Clone_Backend.Migrations
                     b.HasIndex("LegislatorId");
 
                     b.ToTable("BillLegislatorPrimarySponsor");
+                });
+
+            modelBuilder.Entity("BillModelSessionMeetingModel", b =>
+                {
+                    b.Property<int>("BillsId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PreviousMeetingsId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("BillsId", "PreviousMeetingsId");
+
+                    b.HasIndex("PreviousMeetingsId");
+
+                    b.ToTable("BillModelSessionMeetingModel");
                 });
 
             modelBuilder.Entity("BillSessionCommitteeSponsor", b =>
@@ -160,9 +175,6 @@ namespace LCB_Clone_Backend.Migrations
                     b.Property<DateTime>("IntroDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("SessionMeetingModelId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int?>("SessionModelId")
                         .HasColumnType("INTEGER");
 
@@ -177,8 +189,6 @@ namespace LCB_Clone_Backend.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DiscussedByCommitteeId");
-
-                    b.HasIndex("SessionMeetingModelId");
 
                     b.HasIndex("SessionModelId");
 
@@ -386,16 +396,13 @@ namespace LCB_Clone_Backend.Migrations
                     b.Property<int?>("AgendaId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("BillModelId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("CCRoomNumber")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("CommitteeModelId")
+                    b.Property<int?>("CommitteeId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime>("Datetime")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("House")
@@ -419,9 +426,7 @@ namespace LCB_Clone_Backend.Migrations
 
                     b.HasIndex("AgendaId");
 
-                    b.HasIndex("BillModelId");
-
-                    b.HasIndex("CommitteeModelId");
+                    b.HasIndex("CommitteeId");
 
                     b.ToTable("LegislativeMeetings");
                 });
@@ -775,6 +780,21 @@ namespace LCB_Clone_Backend.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("BillModelSessionMeetingModel", b =>
+                {
+                    b.HasOne("LCB_Clone_Backend.Models.BillModel", null)
+                        .WithMany()
+                        .HasForeignKey("BillsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LCB_Clone_Backend.Models.SessionMeetingModel", null)
+                        .WithMany()
+                        .HasForeignKey("PreviousMeetingsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("BillSessionCommitteeSponsor", b =>
                 {
                     b.HasOne("LCB_Clone_Backend.Models.BillModel", null)
@@ -834,10 +854,6 @@ namespace LCB_Clone_Backend.Migrations
                         .HasForeignKey("DiscussedByCommitteeId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("LCB_Clone_Backend.Models.SessionMeetingModel", null)
-                        .WithMany("Bills")
-                        .HasForeignKey("SessionMeetingModelId");
-
                     b.HasOne("LCB_Clone_Backend.Models.SessionModel", null)
                         .WithMany("Bills")
                         .HasForeignKey("SessionModelId");
@@ -885,15 +901,13 @@ namespace LCB_Clone_Backend.Migrations
                         .WithMany()
                         .HasForeignKey("AgendaId");
 
-                    b.HasOne("LCB_Clone_Backend.Models.BillModel", null)
-                        .WithMany("PreviousMeetings")
-                        .HasForeignKey("BillModelId");
-
-                    b.HasOne("LCB_Clone_Backend.Models.CommitteeModel", null)
+                    b.HasOne("LCB_Clone_Backend.Models.CommitteeModel", "Committee")
                         .WithMany("Meetings")
-                        .HasForeignKey("CommitteeModelId");
+                        .HasForeignKey("CommitteeId");
 
                     b.Navigation("Agenda");
+
+                    b.Navigation("Committee");
                 });
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.LegislatorModel", b =>
@@ -969,8 +983,6 @@ namespace LCB_Clone_Backend.Migrations
 
                     b.Navigation("FiscalNotes");
 
-                    b.Navigation("PreviousMeetings");
-
                     b.Navigation("Votes");
                 });
 
@@ -1009,8 +1021,6 @@ namespace LCB_Clone_Backend.Migrations
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.SessionMeetingModel", b =>
                 {
-                    b.Navigation("Bills");
-
                     b.Navigation("Budgets");
 
                     b.Navigation("LegislativeMembers");

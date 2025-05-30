@@ -32,6 +32,10 @@ builder.Services.AddScoped<LegislatorVoteData>();
 builder.Services.AddScoped<SessionData>();
 builder.Services.AddScoped<SessionMeetingData>();
 builder.Services.AddScoped<StaffMemberData>();
+builder.Services.AddScoped<LegislativeMeetingLegislatorData>();
+
+// Add Services for controllers
+
 
 // Add services to the container
 builder.Services.AddControllers();

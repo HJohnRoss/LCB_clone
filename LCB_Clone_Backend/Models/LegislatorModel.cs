@@ -41,5 +41,8 @@ namespace LCB_Clone_Backend.Models
         public required string Born { get; set; }
         public required string Spouse { get; set; }
         public required string Children { get; set; }
+
+        public List<int> LegislativeMeetingsId { get; set; } = new();
+        public List<LegislativeMeetingModel> LegislativeMeetings { get; set; } = new();
     }
 }

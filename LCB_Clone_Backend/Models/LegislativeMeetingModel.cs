@@ -6,7 +6,7 @@
 
         public required string House { get; set; }
 
-        public required string MeetingName { get; set; }
+        public required string Name { get; set; }
 
         public string? YoutubeLink { get; set; }
 
@@ -19,13 +19,20 @@
         public DateTime Datetime { get; set; }
 
 
-        public List<LegislatorModel> LegislativeMembers { get; set; } = new();
+        // NOTE: Joins
+        // Many To Many
+        // TODO: this
+        public List<LegislatorModel> Members { get; set; } = new();
 
-        public List<StaffMemberModel> MeetingStaff { get; set; } = new();
+        // TODO: this
+        // Many To Many
+        public List<StaffMemberModel> Staff { get; set; } = new();
 
+        // One To One
         public int? AgendaId { get; set; }
         public AgendaModel? Agenda { get; set; }
 
+        // One To One
         public int? CommitteeId { get; set; }
         public CommitteeModel? Committee { get; set; }
     }

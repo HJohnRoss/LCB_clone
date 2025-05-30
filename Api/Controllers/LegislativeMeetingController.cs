@@ -46,7 +46,7 @@ namespace Api.Controllers
         [HttpPost("Create")]
         public async Task<ActionResult> Create(
                 string house,
-                string meetingName,
+                string name,
                 string? youtubeLink,
                 string? ccRoomNumber,
                 bool isCCMainRoom,
@@ -60,7 +60,7 @@ namespace Api.Controllers
             {
                 await _data.Create(
                         house,
-                        meetingName,
+                        name,
                         youtubeLink,
                         ccRoomNumber,
                         isCCMainRoom,
@@ -81,7 +81,7 @@ namespace Api.Controllers
         public async Task<ActionResult> Update(
                 int id,
                 string? house,
-                string? meetingName,
+                string? name,
                 string? youtubeLink,
                 string? ccRoomNumber,
                 bool? isCCMainRoom,
@@ -96,7 +96,7 @@ namespace Api.Controllers
                 await _data.Update(
                         id,
                         house,
-                        meetingName,
+                        name,
                         youtubeLink,
                         ccRoomNumber,
                         isCCMainRoom,

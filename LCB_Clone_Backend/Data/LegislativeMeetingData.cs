@@ -6,11 +6,16 @@ namespace LCB_Clone_Backend.Data
     public class LegislativeMeetingData
     {
         private readonly SqlDataAccess _db;
+        // private readonly Lazy<LegislativeMeetingLegislatorData> _dataHelper;
 
         // Database access
-        public LegislativeMeetingData(SqlDataAccess db)
+        public LegislativeMeetingData(
+                SqlDataAccess db
+                // Lazy<LegislativeMeetingLegislatorData> dataHelper
+                )
         {
             _db = db;
+            // _dataHelper = dataHelper;
         }
 
         // returns a list of all LegislativeMeetings
@@ -46,7 +51,7 @@ namespace LCB_Clone_Backend.Data
 
         public async Task Create(
                 string house,
-                string meetingName,
+                string name,
                 string? youtubeLink,
                 string? ccRoomNumber,
                 bool isCCMainRoom,
@@ -59,22 +64,21 @@ namespace LCB_Clone_Backend.Data
             List<string> columns = new()
             {
                 "House",
-                "MeetingName",
+                "Name",
                 "IsCCMainRoom",
                 "Datetime",
             };
             List<string> values = new()
             {
                 "@house",
-                "@meetingName",
+                "@name",
                 "@isCCMainRoom",
                 "@dateTime",
             };
 
             if (youtubeLink != null)
             {
-                columns.Add("YoutubeLink");
-                values.Add("@youtubeLink");
+                columns.Add("YoutubeLink"); values.Add("@youtubeLink");
             }
             if (ccRoomNumber != null)
             {
@@ -87,6 +91,7 @@ namespace LCB_Clone_Backend.Data
                 values.Add("@lvRoomNumber");
             }
 
+            // One to Many
             await ValidateId(
                 agendaId,
                 "agendaId",
@@ -95,6 +100,7 @@ namespace LCB_Clone_Backend.Data
                 columns,
                 values
                 );
+            // One to Many
             await ValidateId(
                 committeeId,
                 "committeeId",
@@ -117,7 +123,7 @@ namespace LCB_Clone_Backend.Data
                     new
                     {
                         house,
-                        meetingName,
+                        name,
                         youtubeLink,
                         ccRoomNumber,
                         isCCMainRoom,
@@ -131,7 +137,7 @@ namespace LCB_Clone_Backend.Data
         public async Task Update(
                 int id,
                 string? house,
-                string? meetingName,
+                string? name,
                 string? youtubeLink,
                 string? ccRoomNumber,
                 bool? isCCMainRoom,
@@ -150,10 +156,10 @@ namespace LCB_Clone_Backend.Data
                 columns.Add("House");
                 values.Add("@house");
             }
-            if (meetingName != null)
+            if (name != null)
             {
-                columns.Add("MeetingName");
-                values.Add("@meetingName");
+                columns.Add("Name");
+                values.Add("@name");
             }
             if (isCCMainRoom != null)
             {
@@ -198,7 +204,15 @@ namespace LCB_Clone_Backend.Data
                 values
                 );
 
-            Console.WriteLine($"committee: {committeeId}");
+            // await CreateManyToMany(
+            //         legislativeMeetingId,
+            //         "legislativeMeetingId",
+            //         "LegislativeMeetingId",
+            //         "LegislativeMeetingModelLegislatorModel",
+            //         columns,
+            //         values,
+            //         id
+            //         );
 
             string insertStr = DataHelper.GetInsertValues(columns, values);
 
@@ -215,14 +229,14 @@ namespace LCB_Clone_Backend.Data
                     {
                         id,
                         house,
-                        meetingName,
+                        name,
                         youtubeLink,
                         ccRoomNumber,
                         isCCMainRoom,
                         lvRoomNumber,
                         dateTime,
                         agendaId,
-                        committeeId
+                        committeeId,
                     });
 
         }
@@ -261,23 +275,14 @@ namespace LCB_Clone_Backend.Data
                     );
             meeting.Committee = committees.FirstOrDefault();
 
+            // TODO: Query
             query = @"
-                 SELECT * FROM Legislators
-                 WHERE LegislativeMeetingModelId = @id;
+                SELECT * FROM LegislativeMeetingModelLegislatorModel
+                WHERE LegislativeMeetingsId = @id;
                 ";
-            meeting.LegislativeMembers = await _db.LoadData<LegislatorModel, dynamic>(
-                    query,
-                    new { id = meeting.Id }
-                    );
-
-            query = @"
-                SELECT * FROM StaffMembers
-                WHERE LegislativeMeetingModelId = @id;
-                ";
-            meeting.MeetingStaff = await _db.LoadData<StaffMemberModel, dynamic>(
-                    query,
-                    new { id = meeting.Id }
-                    );
+            // meeting.Members = await _dataHelper.GetLegislators(meeting.Id);
+            // meeting.Members = 
+            // TODO: STAFF
         }
 
         public async Task ValidateId(
@@ -293,8 +298,6 @@ namespace LCB_Clone_Backend.Data
                         SELECT * FROM {tableName}
                         WHERE Id = @id;
                     ";
-            Console.WriteLine($"id: {id}");
-            Console.WriteLine(query);
             List<LegislativeMeetingModel> results =
                 await _db.LoadData<LegislativeMeetingModel, dynamic>(query, new { id })
                 ?? throw new InvalidDataException($"{tableName} GetOne is invalid");

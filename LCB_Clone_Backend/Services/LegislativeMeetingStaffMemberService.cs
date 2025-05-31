@@ -4,14 +4,14 @@ using LCB_Clone_Backend.Validation;
 
 namespace LCB_Clone_Backend.Services
 {
-    public class LegislativeMeetingLStaffMemberService
+    public class LegislativeMeetingStaffMemberService
     {
         private readonly LegislativeMeetingData _meetingData;
         private readonly StaffMemberData _staffmemberData;
         private readonly LegislativeMeetingStaffMemberData _legislativeMeetingStaffMemberData;
         private readonly LegislativeMeetingStaffMemberValidation _legislativeMeetingStaffMemberValidation;
 
-        public LegislativeMeetingLStaffMemberService(
+        public LegislativeMeetingStaffMemberService(
                 LegislativeMeetingData meetingData,
                 StaffMemberData staffMemberData,
                 LegislativeMeetingStaffMemberData legislativeMeetingStaffMemberData,
@@ -31,12 +31,12 @@ namespace LCB_Clone_Backend.Services
             await _legislativeMeetingStaffMemberData.Create(meetingsId, staffId);
         }
 
-        public async Task<List<StaffMemberModel>> GetLegislators(int meetingId)
+        public async Task<List<StaffMemberModel>> GetStaff(int meetingId)
         {
             return await _legislativeMeetingStaffMemberData.GetStaff(meetingId);
         }
 
-        // Legislators
+        // Staff
         public async Task UpdateStaff(int staffId, int meetingId)
         {
             await _legislativeMeetingStaffMemberData.UpdateStaff(staffId, meetingId);
@@ -44,7 +44,7 @@ namespace LCB_Clone_Backend.Services
 
         public async Task DeleteStaff(int staffId)
         {
-            await _legislativeMeetingStaffMemberData.DeleteLegislator(staffId);
+            await _legislativeMeetingStaffMemberData.DeleteStaff(staffId);
         }
 
         // Legislative Meetings
@@ -55,12 +55,12 @@ namespace LCB_Clone_Backend.Services
 
         public async Task UpdateMeeting(int legislatorId, int meetingId)
         {
-            await _legislativeMeetingLegislatorData.UpdateMeeting(legislatorId, meetingId);
+            await _legislativeMeetingStaffMemberData.UpdateMeeting(legislatorId, meetingId);
         }
 
         public async Task DeleteMeeting(int meetingId)
         {
-            await _legislativeMeetingLegislatorData.DeleteMeeting(meetingId);
+            await _legislativeMeetingStaffMemberData.DeleteMeeting(meetingId);
         }
     }
 }

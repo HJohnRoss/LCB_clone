@@ -11,6 +11,9 @@ namespace LCB_Clone_Backend.Models
         public string? Fri { get; set; }
 
         // Joins
+        public List<int> MeetingsId { get; set; } = new();
+        public List<SessionMeetingModel> Meetings { get; set; } = new();
+
         public List<int> LegislativeMembersId { get; set; } = new();
         public List<LegislatorModel> LegislativeMembers { get; set; } = new();
 

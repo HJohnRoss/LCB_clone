@@ -68,6 +68,7 @@ namespace LCB_Clone_Backend.Migrations
                     Wed = table.Column<string>(type: "TEXT", nullable: true),
                     Thurs = table.Column<string>(type: "TEXT", nullable: true),
                     Fri = table.Column<string>(type: "TEXT", nullable: true),
+                    MeetingsId = table.Column<string>(type: "TEXT", nullable: false),
                     LegislativeMembersId = table.Column<string>(type: "TEXT", nullable: false),
                     StaffMembersId = table.Column<string>(type: "TEXT", nullable: false),
                     SponsoredBillsId = table.Column<string>(type: "TEXT", nullable: false),
@@ -259,14 +260,20 @@ namespace LCB_Clone_Backend.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     MinutesPath = table.Column<string>(type: "TEXT", nullable: true),
                     House = table.Column<string>(type: "TEXT", nullable: false),
-                    MeetingName = table.Column<string>(type: "TEXT", nullable: false),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
                     YoutubeLink = table.Column<string>(type: "TEXT", nullable: true),
                     CCRoomNumber = table.Column<string>(type: "TEXT", nullable: true),
                     IsCCMainRoom = table.Column<bool>(type: "INTEGER", nullable: false),
                     LVRoomNumber = table.Column<string>(type: "TEXT", nullable: true),
                     Datetime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CommitteeId = table.Column<int>(type: "INTEGER", nullable: true),
                     AgendaId = table.Column<int>(type: "INTEGER", nullable: true),
-                    SessionModelId = table.Column<int>(type: "INTEGER", nullable: true)
+                    BillsId = table.Column<string>(type: "TEXT", nullable: false),
+                    BudgetsId = table.Column<string>(type: "TEXT", nullable: false),
+                    WorkSessionId = table.Column<string>(type: "TEXT", nullable: true),
+                    MembersId = table.Column<string>(type: "TEXT", nullable: false),
+                    StaffId = table.Column<string>(type: "TEXT", nullable: false),
+                    SessionId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -277,8 +284,13 @@ namespace LCB_Clone_Backend.Migrations
                         principalTable: "Agendas",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_SessionMeetings_Sessions_SessionModelId",
-                        column: x => x.SessionModelId,
+                        name: "FK_SessionMeetings_SessionCommittees_CommitteeId",
+                        column: x => x.CommitteeId,
+                        principalTable: "SessionCommittees",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_SessionMeetings_Sessions_SessionId",
+                        column: x => x.SessionId,
                         principalTable: "Sessions",
                         principalColumn: "Id");
                 });
@@ -847,9 +859,14 @@ namespace LCB_Clone_Backend.Migrations
                 column: "AgendaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SessionMeetings_SessionModelId",
+                name: "IX_SessionMeetings_CommitteeId",
                 table: "SessionMeetings",
-                column: "SessionModelId");
+                column: "CommitteeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SessionMeetings_SessionId",
+                table: "SessionMeetings",
+                column: "SessionId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_WorkSessions_SessionMeetingModelId",
@@ -939,10 +956,10 @@ namespace LCB_Clone_Backend.Migrations
                 name: "Committees");
 
             migrationBuilder.DropTable(
-                name: "SessionCommittees");
+                name: "Agendas");
 
             migrationBuilder.DropTable(
-                name: "Agendas");
+                name: "SessionCommittees");
 
             migrationBuilder.DropTable(
                 name: "Sessions");

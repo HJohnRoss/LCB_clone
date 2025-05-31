@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LCB_Clone_Backend.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250530213616_InitialCreate")]
+    [Migration("20250531203717_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -648,6 +648,10 @@ namespace LCB_Clone_Backend.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.PrimitiveCollection<string>("MeetingsId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Mon")
                         .HasColumnType("TEXT");
 
@@ -682,8 +686,19 @@ namespace LCB_Clone_Backend.Migrations
                     b.Property<int?>("AgendaId")
                         .HasColumnType("INTEGER");
 
+                    b.PrimitiveCollection<string>("BillsId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.PrimitiveCollection<string>("BudgetsId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("CCRoomNumber")
                         .HasColumnType("TEXT");
+
+                    b.Property<int?>("CommitteeId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("Datetime")
                         .HasColumnType("TEXT");
@@ -698,15 +713,26 @@ namespace LCB_Clone_Backend.Migrations
                     b.Property<string>("LVRoomNumber")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("MeetingName")
+                    b.PrimitiveCollection<string>("MembersId")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("MinutesPath")
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("SessionModelId")
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("SessionId")
                         .HasColumnType("INTEGER");
+
+                    b.PrimitiveCollection<string>("StaffId")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.PrimitiveCollection<string>("WorkSessionId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("YoutubeLink")
                         .HasColumnType("TEXT");
@@ -715,7 +741,9 @@ namespace LCB_Clone_Backend.Migrations
 
                     b.HasIndex("AgendaId");
 
-                    b.HasIndex("SessionModelId");
+                    b.HasIndex("CommitteeId");
+
+                    b.HasIndex("SessionId");
 
                     b.ToTable("SessionMeetings");
                 });
@@ -1085,11 +1113,19 @@ namespace LCB_Clone_Backend.Migrations
                         .WithMany()
                         .HasForeignKey("AgendaId");
 
-                    b.HasOne("LCB_Clone_Backend.Models.SessionModel", null)
+                    b.HasOne("LCB_Clone_Backend.Models.SessionCommitteeModel", "Committee")
                         .WithMany("Meetings")
-                        .HasForeignKey("SessionModelId");
+                        .HasForeignKey("CommitteeId");
+
+                    b.HasOne("LCB_Clone_Backend.Models.SessionModel", "Session")
+                        .WithMany("Meetings")
+                        .HasForeignKey("SessionId");
 
                     b.Navigation("Agenda");
+
+                    b.Navigation("Committee");
+
+                    b.Navigation("Session");
                 });
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.WorkSessionDocModel", b =>
@@ -1205,6 +1241,8 @@ namespace LCB_Clone_Backend.Migrations
                     b.Navigation("BillsDiscussed");
 
                     b.Navigation("LegislativeMembers");
+
+                    b.Navigation("Meetings");
                 });
 
             modelBuilder.Entity("LCB_Clone_Backend.Models.SessionMeetingModel", b =>

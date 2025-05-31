@@ -22,9 +22,8 @@ namespace LCB_Clone_Backend.Models
         public required string District { get; set; }
         public required string TermEnd { get; set; }
         // Committees and Bills worked on
-        public required List<CommitteeModel> Committees { get; set; } = new();
-        public required List<BillModel> PrimarySponsorBills { get; set; } = new();
-        public required List<BillModel> CoSponsorBills { get; set; } = new();
+
+
         public List<string> LegislativeService { get; set; } = new();
         public List<string> OtherPublicService { get; set; } = new();
         public List<string> HonorsAwards { get; set; } = new();
@@ -33,6 +32,7 @@ namespace LCB_Clone_Backend.Models
         public List<string> Education { get; set; } = new();
 
         // Votes
+        public List<int> VotesId { get; set; } = new();
         public List<LegislatorVoteModel> Votes { get; set; } = new();
 
         // Personal Info
@@ -42,7 +42,19 @@ namespace LCB_Clone_Backend.Models
         public required string Spouse { get; set; }
         public required string Children { get; set; }
 
+        public List<int> CommitteesId { get; set; } = new();
+        public List<CommitteeModel> Committees { get; set; } = new();
+
+        public List<int> PrimarySponsorBillsId { get; set; } = new();
+        public List<BillModel> PrimarySponsorBills { get; set; } = new();
+
+        public List<int> CoSponsorBillsId { get; set; } = new();
+        public List<BillModel> CoSponsorBills { get; set; } = new();
+
         public List<int> LegislativeMeetingsId { get; set; } = new();
         public List<LegislativeMeetingModel> LegislativeMeetings { get; set; } = new();
+
+        public List<int> SessionMeetingsId { get; set; } = new();
+        public List<SessionMeetingModel> SessionMeetings { get; set; } = new();
     }
 }

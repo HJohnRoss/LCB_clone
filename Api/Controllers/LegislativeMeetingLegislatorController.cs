@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using LCB_Clone_Backend.Data;
 using LCB_Clone_Backend.Models;
+using LCB_Clone_Backend.Services;
 
 namespace Api.Controllers
 {
@@ -9,10 +10,15 @@ namespace Api.Controllers
     public class LegislativeMeetingLegislatorController : ControllerBase
     {
         private readonly LegislativeMeetingLegislatorData _data;
+        private readonly LegislativeMeetingLegislatorService _legislativeMeetingLegislatorService;
 
-        public LegislativeMeetingLegislatorController(LegislativeMeetingLegislatorData data)
+        public LegislativeMeetingLegislatorController(
+                LegislativeMeetingLegislatorData data,
+                LegislativeMeetingLegislatorService legislativeMeetingLegislatorService
+                )
         {
             _data = data;
+            _legislativeMeetingLegislatorService = legislativeMeetingLegislatorService;
         }
 
         [HttpPost("Create")]
@@ -20,7 +26,7 @@ namespace Api.Controllers
         {
             try
             {
-                await _data.Create(meetingsId, membersId);
+                await _legislativeMeetingLegislatorService.Create(meetingsId, membersId);
                 return Ok();
             }
             catch (Exception ex)
@@ -35,7 +41,7 @@ namespace Api.Controllers
         {
             try
             {
-                List<LegislatorModel> results = await _data.GetLegislators(id);
+                List<LegislatorModel> results = await _legislativeMeetingLegislatorService.GetLegislators(id);
                 return Ok(results);
             }
             catch (Exception ex)
@@ -49,7 +55,7 @@ namespace Api.Controllers
         {
             try
             {
-                await _data.UpdateLegislator(legislatorId, meetingId);
+                await _legislativeMeetingLegislatorService.UpdateLegislator(legislatorId, meetingId);
                 return Ok();
             }
             catch (Exception ex)
@@ -63,7 +69,7 @@ namespace Api.Controllers
         {
             try
             {
-                await _data.DeleteLegislator(legislatorId);
+                await _legislativeMeetingLegislatorService.DeleteLegislator(legislatorId);
                 return Ok();
             }
             catch (Exception ex)
@@ -78,7 +84,7 @@ namespace Api.Controllers
         {
             try
             {
-                List<LegislativeMeetingModel> results = await _data.GetMeetings(id);
+                List<LegislativeMeetingModel> results = await _legislativeMeetingLegislatorService.GetMeetings(id);
                 return Ok(results);
             }
             catch (Exception ex)
@@ -92,7 +98,7 @@ namespace Api.Controllers
         {
             try
             {
-                await _data.UpdateMeeting(legislatorId, meetingId);
+                await _legislativeMeetingLegislatorService.UpdateMeeting(legislatorId, meetingId);
                 return Ok();
             }
             catch (Exception ex)
@@ -106,7 +112,7 @@ namespace Api.Controllers
         {
             try
             {
-                await _data.DeleteMeeting(meetingId);
+                await _legislativeMeetingLegislatorService.DeleteMeeting(meetingId);
                 return Ok();
             }
             catch (Exception ex)

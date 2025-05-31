@@ -5,29 +5,14 @@ namespace LCB_Clone_Backend.Data
     public class LegislativeMeetingLegislatorData
     {
         private readonly SqlDataAccess _db;
-        // private readonly Lazy<LegislativeMeetingData> _meetingData;
-        // private readonly LegislatorData _legislatorData;
 
-        public LegislativeMeetingLegislatorData(
-                SqlDataAccess db
-                // Lazy<LegislativeMeetingData> meetingData,
-                // LegislatorData legislatorData
-                )
+        public LegislativeMeetingLegislatorData(SqlDataAccess db)
         {
             _db = db;
-            // _meetingData = meetingData;
-            // _legislatorData = legislatorData;
         }
 
         public async Task Create(int meetingsId, int membersId)
         {
-            // LegislatorModel legislators = await _legislatorData.GetOne(membersId)
-            //     ?? throw new InvalidDataException("membersId is null");
-
-            // Validates LegislativeMeetings
-            // LegislativeMeetingModel meeting = await _meetingData.GetOne(meetingsId)
-            //     ?? throw new InvalidDataException("meetingsId is null");
-
             string query = @"
                 INSERT INTO LegislativeMeetingModelLegislatorModel
                 (LegislativeMeetingsId, MembersId)

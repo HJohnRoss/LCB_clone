@@ -52,9 +52,9 @@ namespace LCB_Clone_Backend.Data
                 .HasMany(b => b.CoSponsors)
                 .WithMany(l => l.CoSponsorBills)
                 .UsingEntity<Dictionary<string, object>>(
-                    "BillLegislatorCoSponsor",
-                    j => j.HasOne<LegislatorModel>().WithMany().HasForeignKey("LegislatorId"),
-                    j => j.HasOne<BillModel>().WithMany().HasForeignKey("BillId")
+                        "BillLegislatorCoSponsor",
+                        j => j.HasOne<LegislatorModel>().WithMany().HasForeignKey("LegislatorId"),
+                        j => j.HasOne<BillModel>().WithMany().HasForeignKey("BillId")
                     );
 
             // Sponsored Relationship

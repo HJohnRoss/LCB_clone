@@ -1,0 +1,1 @@
+cloc Api/Controllers/ Api/Program.cs LCB_Clone_Backend/Models LCB_Clone_Backend/Validation/ LCB_Clone_Backend/Data/ LCB_Clone_Backend/Services/ LCB_Clone_Backend/SqlDataAccess.cs LCB_Clone_Backend/Helpers/ Client/Pages Client/Program.cs Client/Layout/ Client/App.razor Client/wwwroot/css

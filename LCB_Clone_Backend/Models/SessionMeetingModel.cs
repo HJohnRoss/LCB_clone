@@ -4,19 +4,9 @@ namespace LCB_Clone_Backend.Models
     {
         public int Id { get; set; }
 
-        public List<BillModel> Bills { get; set; } = new();
-
-        public List<BudgetModel> Budgets { get; set; } = new();
-
-        public List<WorkSessionDocModel> WorkSessionDocs { get; set; } = new();
-
         public string? MinutesPath { get; set; }
 
         public required string House { get; set; }
-
-        public required List<LegislatorModel> LegislativeMembers { get; set; } = new();
-
-        public required List<StaffMemberModel> MeetingStaff { get; set; } = new();
 
         public required string MeetingName { get; set; }
 
@@ -28,9 +18,20 @@ namespace LCB_Clone_Backend.Models
 
         public string? LVRoomNumber { get; set; }
 
-        public DateTime Date { get; set; }
+        public DateTime Datetime { get; set; }
 
+        // Joins
         public int? AgendaId { get; set; }
         public AgendaModel? Agenda { get; set; }
+
+        public List<BillModel> Bills { get; set; } = new();
+
+        public List<BudgetModel> Budgets { get; set; } = new();
+
+        public List<WorkSessionDocModel> WorkSessionDocs { get; set; } = new();
+
+        public List<LegislatorModel> Members { get; set; } = new();
+
+        public List<StaffMemberModel> Staff { get; set; } = new();
     }
 }

@@ -58,8 +58,24 @@ namespace LCB_Clone_Backend.Data
                 )
         {
             // NOTE: Validating queries
-            List<string> columns = new();
-            List<string> values = new();
+            List<string> columns = new()
+            {
+                "Summary",
+                "IntroDate",
+                "EffectLocalGov",
+                "EffectState",
+                "Title",
+                "Digest"
+            };
+            List<string> values = new()
+            {
+                "@summary",
+                "@introDate",
+                "@effectLocalGov",
+                "@effectState",
+                "@title",
+                "@digest"
+            };
 
             await ValidateId(
                     discussedByCommitteeId,
@@ -88,8 +104,8 @@ namespace LCB_Clone_Backend.Data
             string strValues = DataHelper.GetStringValue(values);
 
             string query = $@"
-                INSERT INTO Bills (Summary, IntroDate, EffectLocalGov, EffectState, Title, Digest, {strColumns})
-                VALUES (@summary, @introDate, @effectLocalGov, @effectState, @title, @digest, {strValues});
+                INSERT INTO Bills ({strColumns})
+                VALUES ({strValues});
             ";
 
             await _db.SaveData(

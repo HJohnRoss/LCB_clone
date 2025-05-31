@@ -1,5 +1,8 @@
 using LCB_Clone_Backend;
 using LCB_Clone_Backend.Data;
+using LCB_Clone_Backend.Validation;
+using LCB_Clone_Backend.Services;
+
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,8 +37,13 @@ builder.Services.AddScoped<SessionMeetingData>();
 builder.Services.AddScoped<StaffMemberData>();
 builder.Services.AddScoped<LegislativeMeetingLegislatorData>();
 
-// Add Services for controllers
+// Services
+builder.Services.AddScoped<LegislativeMeetingLegislatorService>();
+builder.Services.AddScoped<AmendmentService>();
+builder.Services.AddScoped<BillService>();
 
+// Validation
+builder.Services.AddScoped<LegislativeMeetingLegislatorValidation>();
 
 // Add services to the container
 builder.Services.AddControllers();

@@ -21,11 +21,11 @@
 
         // NOTE: Joins
         // Many To Many
-        // TODO: this
+        public List<int> MembersId { get; set; } = new();
         public List<LegislatorModel> Members { get; set; } = new();
 
-        // TODO: this
         // Many To Many
+        public List<int> StaffId { get; set; } = new();
         public List<StaffMemberModel> Staff { get; set; } = new();
 
         // One To One

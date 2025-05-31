@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using LCB_Clone_Backend.Data;
+using LCB_Clone_Backend.Services;
 using LCB_Clone_Backend.Models;
 
 namespace Api.Controllers
@@ -8,12 +8,12 @@ namespace Api.Controllers
     [Route("api/[controller]")]
     public class AmendmentController : ControllerBase
     {
-        private readonly AmendmentData _amendmentData;
+        private readonly AmendmentService _amendmentService;
 
         // Constructor to inject AmendmentData into the controller
-        public AmendmentController(AmendmentData amendmentData)
+        public AmendmentController(AmendmentService amendmentService)
         {
-            _amendmentData = amendmentData;
+            _amendmentService = amendmentService;
         }
 
         // GET api/amendment
@@ -23,7 +23,7 @@ namespace Api.Controllers
             try
             {
                 // Fetch amendments using the AmendmentData service
-                List<AmendmentModel> result = await _amendmentData.GetAll();
+                List<AmendmentModel> result = await _amendmentService.GetAll();
                 return Ok(result); // Return 200 OK with the data
             }
             catch (Exception ex)
@@ -37,7 +37,7 @@ namespace Api.Controllers
         {
             try
             {
-                AmendmentModel result = await _amendmentData.GetOne(id);
+                AmendmentModel result = await _amendmentService.GetOne(id);
                 return Ok(result);
             }
             catch (Exception ex)
@@ -49,19 +49,19 @@ namespace Api.Controllers
         [HttpPut("Update/{id}")]
         public async Task Update(int id, string? filePath, string? fileName)
         {
-            await _amendmentData.Update(id, filePath, fileName);
+            await _amendmentService.Update(id, filePath, fileName);
         }
 
         [HttpPost("Create")]
         public async Task Create(string filePath, string fileName)
         {
-            await _amendmentData.Create(filePath, fileName);
+            await _amendmentService.Create(filePath, fileName);
         }
 
         [HttpDelete("Delete/{id}")]
         public async Task Delete(int id)
         {
-            await _amendmentData.Delete(id);
+            await _amendmentService.Delete(id);
         }
     }
 }

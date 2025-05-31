@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using LCB_Clone_Backend.Data;
+using LCB_Clone_Backend.Services;
 using LCB_Clone_Backend.Models;
 
 namespace Api.Controllers
@@ -8,11 +8,11 @@ namespace Api.Controllers
     [Route("/api/[controller]")]
     public class BillController : ControllerBase
     {
-        private readonly BillData _billData;
+        private readonly BillService _billService;
 
-        public BillController(BillData billData)
+        public BillController(BillService billService)
         {
-            _billData = billData;
+            _billService = billService;
         }
 
 
@@ -21,7 +21,7 @@ namespace Api.Controllers
         {
             try
             {
-                List<BillModel> result = await _billData.GetAll()
+                List<BillModel> result = await _billService.GetAll()
                     ?? throw new InvalidDataException("Bills GetAll uery is null");
                 return Ok(result);
             }
@@ -36,7 +36,7 @@ namespace Api.Controllers
         {
             try
             {
-                BillModel result = await _billData.GetOne(id)
+                BillModel result = await _billService.GetOne(id)
                     ?? throw new InvalidDataException("Bills GetOne Query is null");
                 return Ok(result);
             }
@@ -61,7 +61,7 @@ namespace Api.Controllers
         {
             try
             {
-                await _billData.Create(
+                await _billService.Create(
                             summmary,
                             introDate,
                             effectLocalGov,
@@ -96,7 +96,7 @@ namespace Api.Controllers
         {
             try
             {
-                await _billData.Update(
+                await _billService.Update(
                             id,
                             summary,
                             introDate,
@@ -121,7 +121,7 @@ namespace Api.Controllers
         {
             try
             {
-                await _billData.Delete(id);
+                await _billService.Delete(id);
                 return Ok();
             }
             catch (Exception ex)

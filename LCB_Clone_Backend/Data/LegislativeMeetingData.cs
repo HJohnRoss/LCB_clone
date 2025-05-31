@@ -6,16 +6,10 @@ namespace LCB_Clone_Backend.Data
     public class LegislativeMeetingData
     {
         private readonly SqlDataAccess _db;
-        // private readonly Lazy<LegislativeMeetingLegislatorData> _dataHelper;
 
-        // Database access
-        public LegislativeMeetingData(
-                SqlDataAccess db
-                // Lazy<LegislativeMeetingLegislatorData> dataHelper
-                )
+        public LegislativeMeetingData(SqlDataAccess db)
         {
             _db = db;
-            // _dataHelper = dataHelper;
         }
 
         // returns a list of all LegislativeMeetings
@@ -204,16 +198,6 @@ namespace LCB_Clone_Backend.Data
                 values
                 );
 
-            // await CreateManyToMany(
-            //         legislativeMeetingId,
-            //         "legislativeMeetingId",
-            //         "LegislativeMeetingId",
-            //         "LegislativeMeetingModelLegislatorModel",
-            //         columns,
-            //         values,
-            //         id
-            //         );
-
             string insertStr = DataHelper.GetInsertValues(columns, values);
 
             string query = $@"
@@ -280,8 +264,6 @@ namespace LCB_Clone_Backend.Data
                 SELECT * FROM LegislativeMeetingModelLegislatorModel
                 WHERE LegislativeMeetingsId = @id;
                 ";
-            // meeting.Members = await _dataHelper.GetLegislators(meeting.Id);
-            // meeting.Members = 
             // TODO: STAFF
         }
 
